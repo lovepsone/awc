@@ -2,7 +2,7 @@
 var CORE  = CORE || {};
 CORE.Main = CORE.Main || {};
 
-CORE.Main.renderer 		= new THREE.WebGLRenderer({antialias: true});
+CORE.Main.renderer 		= new THREE.WebGLRenderer({antialias:true});
 CORE.Main.ControlPlayer 	= false;
 CORE.Main.camera 		= new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.001, 9000);
 CORE.Main.cameraType		= 1;
@@ -14,7 +14,11 @@ CORE.Main.VectorCameraOffset 	= new THREE.Vector3(0, 2.5, 2.5);
 
 CORE.Main.scene = new THREE.Scene();
 CORE.Main.clock = new THREE.Clock();
+CORE.Main.stats = new Stats();
 CORE.Main.prevTime = performance.now();
+var light;
+// loader objects
+CORE.Main.LoadObjects = false;
 
 CORE.Main.INIT = function()
 {
@@ -22,34 +26,53 @@ CORE.Main.INIT = function()
 
 	CORE.Main.initRenderer();
 	CORE.Main.initCamera();
-	CORE.Main.initScene();
+	//CORE.Main.initScene();
 	//CORE.Main.initPlayers();
-	CORE.Zone.Load('zone.js', CORE.Main.scene);
+	//CORE.Zone.Load('zone.js', CORE.Main.scene);
+	//CORE.Zone.LoadLobby(CORE.Main.scene);
+	//CORE.Paricle.Fire(CORE.Main.scene);
 	//window.addEventListener('resize', CORE.Main.onWindowResize, false);
 }
 
 CORE.Main.initRenderer = function()
 {
-	CORE.Main.renderer.setClearColor(0x00ffff);
+	CORE.Main.renderer.setClearColor(0x000000);
 	CORE.Main.renderer.setPixelRatio(window.devicePixelRatio);
 	CORE.Main.renderer.setSize(window.innerWidth, window.innerHeight);
+	CORE.Main.renderer.physicallyCorrectLights = true;
+	//CORE.Main.renderer.toneMapping = THREE.ReinhardToneMapping;
+	CORE.Main.renderer.gammaInput = true;
+	CORE.Main.renderer.gammaOutput = true;
 	CORE.WindowResize(CORE.Main.renderer, CORE.Main.camera);
 	CORE.FullScreen.bindKey({charCode : 'm'.charCodeAt(0)});
-	CORE.Main.renderer.shadowMapEnabled = false;
+	CORE.Main.renderer.shadowMap.enabled = CORE.Conf.Shadow;
 }
 
 CORE.Main.initCamera = function()
 {
-	if (CORE.Main.cameraType == 1)
-		CORE.Main.CameraControls();
+	/*if (CORE.Main.cameraType == 1)
+		CORE.Main.CameraControls();*/
 	/**/
-	var ambientLight = new THREE.AmbientLight(0xd2d2d2);
-	CORE.Main.scene.add(ambientLight);
 
-	var light = new THREE.DirectionalLight(0xffffff, 1);
-	light.position.set(0, 15, 0);
-	light.castShadow = false;
-	CORE.Main.scene.add(light);
+	CORE.Main.camera.position.set(7, 5, 7);
+	//CORE.Main.camera.rotation.set(0, 0, 0);
+	CORE.Main.camera.lookAt(new THREE.Vector3(0, 2, 0));
+
+	//var ambientLight = new THREE.AmbientLight(0x464646);/*d2d2d2*/
+	/*CORE.Main.scene.add(ambientLight);
+
+	var bulbGeometry = new THREE.SphereGeometry(0.12, 16, 8);
+	var bulbMat = new THREE.MeshStandardMaterial({emissive: 0xffffee, emissiveIntensity: 1, color: 0x000000});
+
+	light = new THREE.DirectionalLight(0xffffff, 1);
+	light.add( new THREE.Mesh( bulbGeometry, bulbMat ) );
+	//light.position.set(-12, 30, 16);
+	light.target.position.set(0, 0, 0);
+	light.castShadow = CORE.Conf.Shadow;
+	CORE.Main.scene.add(light);*/
+
+/**/
+
 }
 
 CORE.Main.CameraControls = function()
@@ -64,9 +87,9 @@ CORE.Main.CameraControls = function()
 
 CORE.Main.initScene = function()
 {
-	var axisHelper = new THREE.AxisHelper(1);
+	/*var axisHelper = new THREE.AxisHelper(1);
 	axisHelper.position.set(-1, 0, -2);
-	CORE.Main.scene.add(axisHelper);
+	CORE.Main.scene.add(axisHelper);*/
 }
 
 CORE.Main.onMouseMove = function(event)
@@ -129,43 +152,37 @@ CORE.Main.AnimationFrame = function()
 		CORE.Main.Render();
 }
 
-CORE.Main.Render = function ()
+CORE.Main.UpdateNetWork = function(_delta)
 {
-	//if (!CORE.Main.ControlPlayer)
-		//return;
-
-	// anims game
-	var time = performance.now();
-	//var delta = (time - CORE.Main.prevTime)/1000;
-	var _delta = 0.75 * CORE.Main.clock.getDelta();
-
-	// network
 	if (CORE.Player.mesh)
 	{
 		CORE.Network.setDataPlayer(CORE.Player.mesh);
 		CORE.Network.SMG_PLAYER();
-	}
 
-	for (var i = 0; i < CORE.Network.players.length; i++)
-	{
-		if (CORE.Network.players[i] != null && CORE.Network.players[i].id != CORE.Network.player.id)
+		for (var i = 0; i < CORE.Network.players.length; i++)
 		{
-			var check = 'm_' + CORE.Network.players[i].login;
-			var _player = CORE.Main.scene.getObjectByName(check);
-			if (_player == undefined)
+			if (CORE.Network.players[i] != null && CORE.Network.players[i].id != CORE.Network.player.id)
 			{
-				CORE.Network.LoadNewPlayer(i, check, CORE.Main.scene);
-			}
-			else
-			{
-				_player.position.set(CORE.Network.players[i].position.x, CORE.Network.players[i].position.y, CORE.Network.players[i].position.z);
-				_player.rotation.y = CORE.Network.players[i].rot_y;
-				CORE.Network.Anim.Update(i, _delta, _player);
-				_player.skeleton.bones[14].rotation.z = CORE.Network.players[i].bones.bip01_spine2.rotation.z; // временно пока z
+				var check = 'm_' + CORE.Network.players[i].login;
+				var _player = CORE.Main.scene.getObjectByName(check);
+				if (_player == undefined)
+				{
+					CORE.Network.LoadNewPlayer(i, check, CORE.Main.scene);
+				}
+				else
+				{
+					_player.position.set(CORE.Network.players[i].position.x, CORE.Network.players[i].position.y, CORE.Network.players[i].position.z);
+					_player.rotation.y = CORE.Network.players[i].rot_y;
+					CORE.Network.Anim.Update(i, _delta, _player);
+					_player.skeleton.bones[14].rotation.z = CORE.Network.players[i].bones.bip01_spine2.rotation.z; // временно пока z
+				}
 			}
 		}
 	}
+}
 
+CORE.Main.UpdateCamera = function()
+{
 	if (CORE.Player.mesh && CORE.Main.cameraType == 2)
 	{
 		var relativeCameraOffset = new THREE.Vector3(CORE.Main.VectorCameraOffset.x, CORE.Main.VectorCameraOffset.y, CORE.Main.VectorCameraOffset.z);
@@ -185,13 +202,64 @@ CORE.Main.Render = function ()
 		CORE.Player.mesh.rotation.y = CORE.Main.yawCamera.rotation.y;
 		//CORE.Player.mesh.rotation.x = CORE.Main.yawCamera.rotation.x;
 	}
+}
 
+CORE.Main.UpdateData = function(time, _delta)
+{
 	CORE.Player.Update(time, _delta);
 	CORE.Weapon.Update(_delta);
 	CORE.Hand.Update(_delta);
 	CORE.WPNHud.Update(_delta);
 	CORE.Bullet.Update(_delta);
+}
 
+var lobbyl = false;
+CORE.Main.Render = function()
+{
+	if (!CORE.LoaderObjects.LoadObj)
+	{
+		CORE.LoaderObjects.LoadObjects();
+		CORE.LoaderObjects.LoadObj = true;
+	}
+	else if(CORE.LoaderObjects.LoadFinish && !CORE.Sky.Loaded)
+	{
+		// load lobby
+		CORE.Network.SMG_TIMEGAME();
+		CORE.Maps.LoadLobby(CORE.Main.scene);
+		CORE.Sky.Load(CORE.Main.scene);
+		CORE.Sky.Loaded = true;
+		CORE.Light.INIT(CORE.Main.scene, CORE.Network.time.h);
+		CORE.Light.Loaded = true;
+		lobbyl = true;
+	}
+	else if (lobbyl)
+	{
+		CORE.Network.SMG_TIMEGAME();
+		//var time = CORE.Network.time.h*60 + CORE.Network.time.m;
+		//light.position.x = 10 * Math.cos(time/** 0.0003*/);
+		//light.position.y = 10 * Math.sin(time/** 0.0003*/);
+	}
+	//if (!CORE.Main.ControlPlayer)
+		//return;
+
+	/*var _delta = 0.75 * CORE.Main.clock.getDelta();
+	var time = performance.now();
+	if (CORE.Network.inGame)
+	{
+		// anims game
+		//var delta = (time - CORE.Main.prevTime)/1000;
+	
+		CORE.Main.UpdateNetWork(_delta);
+		CORE.Main.UpdateCamera();
+		CORE.Main.UpdateData(time, _delta);
+	}
+	CORE.Paricle.Update(_delta*0.4);
+	light.position.x = 10 * Math.cos(time* 0.0003);
+	light.position.y = 10 * Math.sin(time* 0.0003);*/
+	
+	if (CORE.Light.Loaded) CORE.Light.Update(CORE.Network.time.h);
+	
+	CORE.Main.stats.update();
 	CORE.Main.renderer.clear();
 	CORE.Main.renderer.clearDepth();
 	CORE.Main.renderer.render(CORE.Main.scene, CORE.Main.camera);

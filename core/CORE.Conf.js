@@ -7,6 +7,9 @@ CORE.Conf.WPN.pm = CORE.Conf.WPN.pm || {};
 CORE.Conf.WPN.bullet = CORE.Conf.WPN.bullet  || {};
 CORE.Conf.WPN.bullet.b9x18 = CORE.Conf.WPN.bullet.b9x18   || {};
 
+// настройки клиента
+CORE.Conf.Shadow			= true;
+
 // настройки управления
 CORE.Conf.SpeedForward 			= 70.0;
 CORE.Conf.SpeedBackward 		= 35.0;

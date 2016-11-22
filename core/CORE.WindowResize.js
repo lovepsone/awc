@@ -7,14 +7,14 @@ var CORE	= CORE 		|| {};
  * @param {Object} renderer the renderer to update
  * @param {Object} Camera the camera to update
 */
-CORE.WindowResize = function(renderer, camera)
+CORE.WindowResize = function(renderer, camera, W, H)
 {
 	var callback	= function()
 	{
 		// notify the renderer of the size change
-		renderer.setSize( window.innerWidth, window.innerHeight );
+		renderer.setSize( W, H );
 		// update the camera
-		camera.aspect	= window.innerWidth / window.innerHeight;
+		camera.aspect	= W / H;
 		camera.updateProjectionMatrix();
 	}
 	// bind the resize event

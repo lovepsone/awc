@@ -5,10 +5,12 @@ CORE.Network.Anim = CORE.Network.Anim || {};
 
 CORE.Network.URL = CORE.Conf.url;
 CORE.Network.Auth = false;
+CORE.Network.inGame = false;
 CORE.Network.socket = null;
 CORE.Network.player = null;
 CORE.Network.players = [];
 CORE.Network.lMesh = [];
+CORE.Network.time = {};
 
 CORE.Network.loader = new THREE.JSONLoader();
 
@@ -27,10 +29,12 @@ CORE.Network.SMG_AUTHCLIENT = function(login, password)
 	CORE.Network.socket.on('SMG_AUTHCLIENT', function(_AUTHCLIENT)
 	{
 		CORE.Network.Auth = true;
-		CORE.Main.initPlayers(_AUTHCLIENT);
+		//CORE.Network.inGame = true;
+		//CORE.Main.initPlayers(_AUTHCLIENT);
 		HANDLER.Interface.auth.hide();
-		HANDLER.Interface.blocker.show();
+		//HANDLER.Interface.blocker.show();
 		HANDLER.Interface.CORE.show();
+		HANDLER.Interface.LoaderObject.show();
 		CORE.Network.player = _AUTHCLIENT;
 	});	
 }
@@ -42,6 +46,15 @@ CORE.Network.SMG_PLAYER = function()
 	CORE.Network.socket.on('SMG_PLAYER', function(_PLAYERS)
 	{
 		CORE.Network.players = _PLAYERS;
+	});
+}
+
+CORE.Network.SMG_TIMEGAME = function()
+{
+	CORE.Network.socket.emit('SMG_TIMEGAME', 0);
+	CORE.Network.socket.on('SMG_TIMEGAME', function(_TIMEGAME)
+	{
+		CORE.Network.time = _TIMEGAME;
 	});
 }
 

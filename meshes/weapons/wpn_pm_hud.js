@@ -18,9 +18,9 @@
 "DbgIndex" : 0,
 "DbgName"  : "pm_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-"colorAmbient"  : [0.5880, 0.5880, 0.5880],
+
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
-"transparency"  : 1.0,
+"opacity"  : 1.0,
 "specularCoef"  : 10.0,
 "mapDiffuse"    : "../../textures/wpn/pm.png",
 "vertexColors" : false
@@ -30,9 +30,9 @@
 "DbgIndex" : 1,
 "DbgName"  : "sil_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-"colorAmbient"  : [0.5880, 0.5880, 0.5880],
+
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
-"transparency"  : 1.0,
+"opacity"  : 1.0,
 "specularCoef"  : 10.0,
 "mapDiffuse"    : "../../textures/addons/pistolsil/sil.png",
 "vertexColors" : false

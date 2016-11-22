@@ -17,7 +17,7 @@
 {
 "DbgIndex" : 0,
 "DbgName"  : "grnd_grass",
-"transparency"  : 1.0,
+"opacity"  : 1.0,
 "specularCoef"  : 10.0,
 "mapDiffuse"    : "../../textures/detail/detail_grnd_grass",
 "mapDiffuseWrap" : ["repeat", "repeat"],

@@ -562,7 +562,7 @@ CORE.Player.Update = function(_time, _delta)
 
 		CORE.Player.velocity.x -= CORE.Player.velocity.x * 9.8 * delta;
 		CORE.Player.velocity.z -= CORE.Player.velocity.z * 9.8 * delta;
-		CORE.Player.velocity.y -= 9.8 * CORE.Conf.Mass * delta; // 100.0 = mass
+		CORE.Player.velocity.y -= 1.8 * CORE.Conf.Mass * delta; // 100.0 = mass
 
 		if (CORE.Player.mFor) 	CORE.Player.velocity.z -= CORE.Player.Speed.f * delta;
 		if (CORE.Player.mBack)  CORE.Player.velocity.z += CORE.Conf.SpeedBackward * delta;

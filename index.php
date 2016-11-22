@@ -8,6 +8,10 @@
 	echo '<script type="text/javascript" src="libs/jquery.min.js"></script>';
 	echo '<script type="text/javascript" src="libs/three.min.js"></script>';
 	echo '<script type="text/javascript" src="libs/socket.io.js"></script>';
+	echo '<script type="text/javascript" src="libs/Detector.js"></script>';
+	echo '<script type="text/javascript" src="libs/stats.min.js"></script>';
+	echo '<script type="text/javascript" src="libs/SPE.min.js"></script>';
+	echo '<script type="text/javascript" src="libs/DDSLoader.js"></script>';
 	echo '<script type="text/javascript" src="libs/FXAAShader.js"></script>';
 	echo '<link rel="stylesheet" href="style.css">';
 	echo '</head><body>';
@@ -19,17 +23,32 @@
 	echo '<script type="text/javascript" src="CORE/CORE.Network.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.FullScreen.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.WindowResize.js"></script>';
+	// LOAD MAPS and obj
+	echo '<script type="text/javascript" src="CORE/Maps/MAPS.Lobby.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Object3D.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.LoaderObjects.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Maps.js"></script>';
+	//
 	echo '<script type="text/javascript" src="CORE/CORE.Main.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Paricle.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Zone.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Weapon.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Player.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Hand.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.WPNHud.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Bullet.js"></script>';
-
-	echo '<div id="auth" align="center">Login: <input type="text" id="AuthLogin" class="textbox" style="width:100px" /><br/>';
-	echo 'Password: <input type="password" id="AuthPassword" class="textbox" style="width:100px" /><br/>';
-	echo '<input id="btnAuth" type="submit" value="Auth"/></div>';
+	echo '<script type="text/javascript" src="CORE/CORE.Sky.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Light.js"></script>';
+	// auths
+	echo '<div id="auth" align="center">';
+	echo '<div class="loginform">Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="AuthLogin"/></br>';
+	echo 'Password:<input type="password" id="AuthPassword"/></br>';
+	echo '<input id="btnAuth" type="submit" value="Auth"/></div></div>';
+	// loader main
+	echo '<div id="LoaderObject">';
+	echo '<progress id="pLoaderObject" value="0" max="100"></progress>';
+	echo '<span class="progress-value">0%</span>';
+	echo '</div>';
 
 	echo '<div id="blocker">';
 	echo '<div id="instructions"><span style="font-size:40px">Click to play</span><br />(W, A, S, D = Move, SPACE = Jump, MOUSE = Look around)</div>';
@@ -40,6 +59,8 @@
 	echo '</div>';
 	echo '<script>';
 	?>
+	if (!Detector.webgl) Detector.addGetWebGLMessage();
+	$("#CORE").append(CORE.Main.stats.dom);
 	$("#CORE").append(CORE.Main.renderer.domElement);
 	CORE.Main.INIT();
 	CORE.Main.AnimationFrame();
