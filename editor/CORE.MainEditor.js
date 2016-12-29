@@ -329,7 +329,7 @@ CORE.MainEditor.LoadSquare = function(patch, name, pos)
 				materials[j].visible = false;
 			}
 		}
-		var faceMaterial = new THREE.MeshFaceMaterial(materials);
+		var faceMaterial = new THREE.MultiMaterial(materials);
 		var mesh = new THREE.Mesh(geometry, /*new THREE.MeshLambertMaterial({ map: texture, side: THREE.DoubleSide})*/faceMaterial);
 		if (CORE.MainEditor.LoadMapId == 0)
 		{
@@ -403,7 +403,7 @@ CORE.MainEditor.LoadObj = function(id, rx, ry, rz, px, py, pz)
 			}
 		}
 
-		var faceMaterial = new THREE.MeshFaceMaterial(materials);
+		var faceMaterial = new THREE.MultiMaterial(materials);
 		var mesh = new THREE.Mesh(geometry, faceMaterial);
 		mesh.name = CORE.MainEditor.i + '.' + id;
 		CORE.MainEditor.i++;
@@ -452,7 +452,7 @@ CORE.MainEditor.LoadObjs = function(id, p, r, s)
 			}
 		}
 
-		var faceMaterial = new THREE.MeshFaceMaterial(materials);
+		var faceMaterial = new THREE.MultiMaterial(materials);
 		var mesh = new THREE.Mesh(geometry, faceMaterial);
 		mesh.name = CORE.MainEditor.i + '.' + id +'.' + CORE.Object3D.obj[id].collision;
 		CORE.MainEditor.i++;
@@ -499,7 +499,7 @@ CORE.MainEditor.LoadGrass = function(count, w, h)
 						materials[j].alphaTest = 0.5;
 					}
 				}
-				var faceMaterial = new THREE.MeshFaceMaterial(materials);
+				var faceMaterial = new THREE.MultiMaterial(materials);
 				var mesh = new THREE.Mesh(geometry, faceMaterial);
 				mesh.name = CORE.MainEditor.i + '.' + objGrass[id];
 				CORE.MainEditor.i++;
