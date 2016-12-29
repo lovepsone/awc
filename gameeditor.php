@@ -19,6 +19,7 @@
 	echo '<script type="text/javascript" src="CORE/CORE.FullScreen.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.WindowResize.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Object3D.js"></script>';
+	echo '<script type="text/javascript" src="libs/cannon.min.js"></script>';
 	//maps
 	echo '<script type="text/javascript" src="CORE/Maps/MAPS.Lobby.js"></script>';
 	echo '<script type="text/javascript" src="CORE/Maps/MAPS.Map1.js"></script>';
@@ -33,6 +34,11 @@
 	// game
 	echo '<div id="eCORE" align="center">';
 	echo '</div>';
+	//map
+	echo '<div id="Map" style="height:490px; width:130px;position: absolute;">';
+	echo '<img id="player" src="style/player.jpg" style="position: absolute;">';
+	echo '<img src="style/map.jpg">';
+	echo '</div>';
 	echo '<script>';
 	?>
 	if (!Detector.webgl) Detector.addGetWebGLMessage();
@@ -42,6 +48,13 @@
 	CORE.GameEdit.INIT();
 	CORE.GameEdit.AnimationFrame();
 
+	$(document).ready(function()
+	{
+		$("#Map").hide();
+		$("#player").css('left', '245px');
+		$("#player").css('top', '245px');
+	});
+	
 	var blocker = document.getElementById('blocker');
 	var instructions = document.getElementById('instructions');
 	var havePointerLock = 'pointerLockElement' in document || 'mozPointerLockElement' in document || 'webkitPointerLockElement' in document;
