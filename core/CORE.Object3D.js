@@ -207,26 +207,37 @@ CORE.Object3D.mp[196] =  {name: 'map1_a1_15', 	path: 'meshes/maps/map_a_1.12.js'
 CORE.Object3D.mp[197] =  {name: 'map1_a1_16', 	path: 'meshes/maps/map_a_1.13.js', 	position: new THREE.Vector3(-314,  0, -367)};
 CORE.Object3D.mp[198] =  {name: 'map1_a2_11', 	path: 'meshes/maps/map_a_2.7.js', 	position: new THREE.Vector3(-289,  0, -218)};
 CORE.Object3D.mp[199] =  {name: 'map1_a1_17', 	path: 'meshes/maps/map_a_1.14.js', 	position: new THREE.Vector3(-302,  0, -356)};
-
 CORE.Object3D.mp[200] =  {name: 'map1_b3_9', 	path: 'meshes/maps/map_b_3.5.js', 	position: new THREE.Vector3(-191,  0, 81  )};
 CORE.Object3D.mp[201] =  {name: 'map1_b4_5', 	path: 'meshes/maps/map_b_4.5.js', 	position: new THREE.Vector3(-204,  0, 113 )};
 CORE.Object3D.mp[202] =  {name: 'map1_b4_6', 	path: 'meshes/maps/map_b_4.6.js', 	position: new THREE.Vector3(-198,  0, 153 )};
-
 CORE.Object3D.mp[203] =  {name: 'map1_b1_8', 	path: 'meshes/maps/map_b_1.5.js', 	position: new THREE.Vector3(-131,  0, -414)};
 CORE.Object3D.mp[204] =  {name: 'map1_b1_9', 	path: 'meshes/maps/map_b_1.6.js', 	position: new THREE.Vector3(-123,  0, -411)};
-CORE.Object3D.mp[205] =  {name: 'map1_b1_10', 	path: 'meshes/maps/map_b_1.7.js', 	position: new THREE.Vector3(-107,  0, -357)};
+CORE.Object3D.mp[205] =  {name: 'map1_b1_10', 	path: 'meshes/maps/map_b_1.7.js', 	position: new THREE.Vector3(-101,  0, -357)};
 CORE.Object3D.mp[206] =  {name: 'map1_b1_11', 	path: 'meshes/maps/map_b_1.8.js', 	position: new THREE.Vector3(-104,  0, -352)};
 CORE.Object3D.mp[207] =  {name: 'map1_b3_10', 	path: 'meshes/maps/map_b_3.6.js', 	position: new THREE.Vector3(-100,  0, 55  )};
-
 CORE.Object3D.mp[208] =  {name: 'map1_c1_9', 	path: 'meshes/maps/map_c_1.5.js',	position: new THREE.Vector3(-16,   0, -401)};
 CORE.Object3D.mp[209] =  {name: 'map1_c2_9', 	path: 'meshes/maps/map_c_2.5.js',	position: new THREE.Vector3(9,     0, -303)};
 CORE.Object3D.mp[210] =  {name: 'map1_c2_10', 	path: 'meshes/maps/map_c_2.6.js',	position: new THREE.Vector3(9,     0, -297)};
-
 CORE.Object3D.mp[211] =  {name: 'map1_c2_11', 	path: 'meshes/maps/map_c_2.7.js',	position: new THREE.Vector3(-17,   0, -144)};
 CORE.Object3D.mp[212] =  {name: 'map1_c2_12', 	path: 'meshes/maps/map_c_2.8.js',	position: new THREE.Vector3(-4,    0, -152)};
 CORE.Object3D.mp[213] =  {name: 'map1_c2_13', 	path: 'meshes/maps/map_c_2.9.js',	position: new THREE.Vector3(-17,   0, -146)};
-//CORE.Object3D.mp[214] =  {name: 'map1_c4_7', 	path: 'meshes/maps/map_c_4.5.js', 	position: new THREE.Vector3(48,   0, 156 )};
+CORE.Object3D.mp[214] =  {name: 'map1_c4_7', 	path: 'meshes/maps/map_c_4.5.js', 	position: new THREE.Vector3(56,    0, 109 )};
+CORE.Object3D.mp[215] =  {name: 'map1_c4_8', 	path: 'meshes/maps/map_c_4.6.js', 	position: new THREE.Vector3(65,    0, 113 )};
+CORE.Object3D.mp[216] =  {name: 'map1_c1_10', 	path: 'meshes/maps/map_c_1.6.js',	position: new THREE.Vector3(86,    0, -314)};
+CORE.Object3D.mp[217] =  {name: 'map1_c1_11', 	path: 'meshes/maps/map_c_1.7.js',	position: new THREE.Vector3(99,    0, -319)};
+CORE.Object3D.mp[218] =  {name: 'map1_d5_9', 	path: 'meshes/maps/map_d_5.5.js',	position: new THREE.Vector3(120,  0, 318 )};
+CORE.Object3D.mp[219] =  {name: 'map1_d5_10', 	path: 'meshes/maps/map_d_5.6.js',	position: new THREE.Vector3(127,  0, 335 )};
+CORE.Object3D.mp[220] =  {name: 'map1_d5_11', 	path: 'meshes/maps/map_d_5.7.js',	position: new THREE.Vector3(125,  0, 330 )};
+CORE.Object3D.mp[221] =  {name: 'map1_d5_12', 	path: 'meshes/maps/map_d_5.8.js',	position: new THREE.Vector3(136,  0, 314 )};
+CORE.Object3D.mp[222] =  {name: 'map1_d5_13', 	path: 'meshes/maps/map_d_5.9.js',	position: new THREE.Vector3(136,  0, 344 )};
+CORE.Object3D.mp[223] =  {name: 'map1_d5_14', 	path: 'meshes/maps/map_d_5.10.js',	position: new THREE.Vector3(125,  0, 330 )};
+CORE.Object3D.mp[224] =  {name: 'map1_d3_9', 	path: 'meshes/maps/map_d_3.5.js',	position: new THREE.Vector3(148,  0, -46 )};
 
+CORE.Object3D.mp[225] =  {name: 'map1_d4_9', 	path: 'meshes/maps/map_d_4.5.js',	position: new THREE.Vector3(200,  0, -171)};
+
+CORE.Object3D.mp[226] =  {name: 'map1_d2_9', 	path: 'meshes/maps/map_d_2.5.js',	position: new THREE.Vector3(257,  0, -228)};
+CORE.Object3D.mp[227] =  {name: 'map1_d2_10', 	path: 'meshes/maps/map_d_2.6.js',	position: new THREE.Vector3(262,  0, -242)};
+CORE.Object3D.mp[228] =  {name: 'map1_d2_11', 	path: 'meshes/maps/map_d_2.7.js',	position: new THREE.Vector3(292,  0, -286)};
 // count mp
 CORE.Object3D.mps[0] = [0];
 CORE.Object3D.mps[1] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
@@ -250,7 +261,8 @@ CORE.Object3D.mps[1] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 			181, 182, 183, 184, 185, 186, 187, 188, 189, 190,
 			191, 192, 193, 194, 195, 196, 197, 198, 199, 200,
 			201, 202, 203, 204, 205, 206, 207, 208, 209, 210,
-			211, 212, 213, /*214, 215, 216, 217, 218, 219, 220,*/
+			211, 212, 213, 214, 215, 216, 217, 218, 219, 220,
+			221, 222, 223, 224, 225, 226, 227, 228, /*229, 230,*/
 			];
 
 CORE.Object3D.obj[0] = {name: 'stone_1', 		path: 'meshes/stone/stone_1.js', collision: true};
