@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "mtl_rja_green_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_rja_green.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_rja_green.png",
 "vertexColors" : false
 }
 

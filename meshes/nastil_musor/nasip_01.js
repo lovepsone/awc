@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "grnd_land_01_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "grnd_land_01.dds",
+"mapDiffuse"    : "../../textures/grnd/grnd_land_01.png",
 "vertexColors" : false
 }
 

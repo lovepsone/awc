@@ -18,24 +18,22 @@
 "DbgIndex" : 0,
 "DbgName"  : "wood_old_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "wood_collect.dds",
+"mapDiffuse"    : "../../textures/wood/wood_collect.png",
 "vertexColors" : false
 },
 
 {
 "DbgIndex" : 1,
-"DbgName"  : "prop_barbwire3_S",
+"DbgName"  : "alpha_map",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_barbwire3.dds",
-"mapAlpha"    : "prop_barbwire3.dds",
+"mapDiffuse"    : "../../textures/prop/prop_barbwire3.png",
+"mapAlpha"    : "../../textures/prop/prop_barbwire3_alpha.png",
 "vertexColors" : false
 }
 

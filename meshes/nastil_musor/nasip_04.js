@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "grnd_dirt_dust_02_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "grnd_dirt_dust_02.dds",
+"mapDiffuse"    : "../../textures/grnd/grnd_dirt_dust_02.png",
 "vertexColors" : false
 }
 

@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "crete_pol_brown_1_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "crete_pol_brown_1.dds",
+"mapDiffuse"    : "../../textures/crete/crete_pol_brown_1.png",
 "vertexColors" : false
 },
 
@@ -30,11 +29,10 @@
 "DbgIndex" : 1,
 "DbgName"  : "mtl_pod_01_S3",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_pod_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_pod_01.png",
 "vertexColors" : false
 }
 

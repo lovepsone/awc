@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "crete_zabor_02_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "crete_zabor_02.dds",
+"mapDiffuse"    : "../../textures/crete/crete_zabor_02.png",
 "vertexColors" : false
 }
 

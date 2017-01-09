@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "wood_stolb_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "wood_stolb.dds",
+"mapDiffuse"    : "../../textures/wood/wood_stolb.png",
 "vertexColors" : false
 }
 

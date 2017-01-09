@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "mtl_barrel_01_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_barrel_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_barrel_01.png",
 "vertexColors" : false
 },
 
@@ -30,11 +29,10 @@
 "DbgIndex" : 1,
 "DbgName"  : "prop_railroad_light_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_railroad_light.dds",
+"mapDiffuse"    : "../../textures/prop/prop_railroad_light.png",
 "vertexColors" : false
 },
 
@@ -42,11 +40,10 @@
 "DbgIndex" : 2,
 "DbgName"  : "prop_railroad_light_S5",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_railroad_light.dds",
+"mapDiffuse"    : "../../textures/prop/prop_railroad_light.png",
 "vertexColors" : false
 },
 
@@ -58,7 +55,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_railroad_light.dds",
+"mapDiffuse"    : "prop_railroad_light.png",
 "vertexColors" : false
 }
 

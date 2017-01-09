@@ -22,7 +22,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_pod_01_stears.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_pod_01_stears.png",
 "vertexColors" : false
 },
 
@@ -30,11 +30,10 @@
 "DbgIndex" : 1,
 "DbgName"  : "mtl_pod_01_stears_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_pod_01_stears.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_pod_01_stears.png",
 "vertexColors" : false
 }
 

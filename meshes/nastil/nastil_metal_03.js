@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "mtl_pod_green_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_pod_green.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_pod_green.png",
 "vertexColors" : false
 }
 
