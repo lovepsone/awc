@@ -284,10 +284,10 @@ CORE.MainEditor.LoadMap = function(id)
 		CORE.MainEditor.LoadSquare(CORE.Object3D.mp[CORE.Object3D.mps[id][i]].path, CORE.Object3D.mp[CORE.Object3D.mps[id][i]].name, CORE.Object3D.mp[CORE.Object3D.mps[id][i]].position);
 	}
 	// всреммено скрыл
-	/*for (var i = 0; i < CORE.MainEditor.data.length; i++)
+	for (var i = 0; i < CORE.MainEditor.data.length; i++)
 	{
 		CORE.MainEditor.LoadObjs(CORE.MainEditor.data[i].id, CORE.MainEditor.data[i].position, CORE.MainEditor.data[i].rotation, CORE.MainEditor.data[i].scale);
-	}*/
+	}
 }
 
 CORE.MainEditor.LoadSquare = function(patch, name, pos)
