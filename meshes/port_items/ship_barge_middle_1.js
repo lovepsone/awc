@@ -22,7 +22,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "wind_01.dds",
+"mapDiffuse"    : "../../textures/wind/wind_01.png",
 "vertexColors" : false
 },
 
@@ -34,7 +34,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_wall_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_wall_01.png",
 "vertexColors" : false
 },
 
@@ -46,7 +46,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_floor_plate_02.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_floor_plate_02.png",
 "vertexColors" : false
 },
 
@@ -58,7 +58,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "door_ship_metall.dds",
+"mapDiffuse"    : "../../textures/door/door_ship_metall.png",
 "vertexColors" : false
 },
 
@@ -70,7 +70,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_gilder.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_gilder.png",
 "vertexColors" : false
 },
 
@@ -82,7 +82,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_wall_03.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_wall_03.png",
 "vertexColors" : false
 },
 
@@ -94,7 +94,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_barrel_big_rust.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_barrel_big_rust.png",
 "vertexColors" : false
 },
 
@@ -106,7 +106,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_bochka_02.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_bochka_02.png",
 "vertexColors" : false
 },
 
@@ -118,7 +118,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_barrel_big_rust.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_barrel_big_rust.png",
 "vertexColors" : false
 },
 
@@ -130,7 +130,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "wood_plank8.dds",
+"mapDiffuse"    : "../../textures/wood/wood_plank8.png",
 "vertexColors" : false
 },
 
@@ -142,7 +142,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_wall_02.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_wall_02.png",
 "vertexColors" : false
 },
 
@@ -154,7 +154,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "roof_metal_01.dds",
+"mapDiffuse"    : "../../textures/roof/roof_metal_01.png",
 "vertexColors" : false
 },
 
@@ -162,12 +162,11 @@
 "DbgIndex" : 12,
 "DbgName"  : "prop_fake_ladder_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_fake_ladder.dds",
-"mapAlpha"    : "prop_fake_ladder.dds",
+"mapDiffuse"    : "../../textures/prop/prop_fake_ladder.png",
+"mapAlpha"    : "../../textures/prop/prop_fake_ladder.png",
 "vertexColors" : false
 }
 

@@ -22,7 +22,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_pult5.dds",
+"mapDiffuse"    : "../../textures/prop/prop_pult5.png",
 "vertexColors" : false
 }
 

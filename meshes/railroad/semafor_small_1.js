@@ -22,7 +22,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_railroad_light.dds",
+"mapDiffuse"    : "../../textures/prop/prop_railroad_light.png",
 "vertexColors" : false
 },
 
@@ -34,7 +34,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "crete_stolb_rail.dds",
+"mapDiffuse"    : "../../textures/crete/crete_stolb_rail.png",
 "vertexColors" : false
 },
 
@@ -46,7 +46,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_railroad_light.dds",
+"mapDiffuse"    : "../../textures/prop/prop_railroad_light.png",
 "vertexColors" : false
 }
 

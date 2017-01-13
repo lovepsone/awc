@@ -16,14 +16,13 @@
 "materials": [
 {
 "DbgIndex" : 0,
-"DbgName"  : "prop_barbwire3_S",
+"DbgName"  : "alpha_map",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_barbwire3.dds",
-"mapAlpha"    : "prop_barbwire3.dds",
+"mapDiffuse"    : "../../textures/prop/prop_barbwire3.png",
+"mapAlpha"    : "../../textures/prop/prop_barbwire3_alpha.png",
 "vertexColors" : false
 },
 
@@ -31,24 +30,22 @@
 "DbgIndex" : 1,
 "DbgName"  : "mtl_pod_01_S3",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_pod_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_pod_01.png",
 "vertexColors" : false
 },
 
 {
 "DbgIndex" : 2,
-"DbgName"  : "mtl_fence_01_S",
+"DbgName"  : "alpha_map",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_fence_01.dds",
-"mapAlpha"    : "mtl_fence_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_fence_01.png",
+"mapAlpha"    : "../../textures/mtl/mtl_fence_01_alpha.png",
 "vertexColors" : false
 }
 

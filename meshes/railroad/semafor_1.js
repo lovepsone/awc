@@ -22,20 +22,20 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_railroad_light.dds",
+"mapDiffuse"    : "../../textures/prop/prop_railroad_light.png",
 "vertexColors" : false
 },
 
 {
 "DbgIndex" : 1,
-"DbgName"  : "mtl_girder_reil_S",
+"DbgName"  : "alpha_map",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
 
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_girder_reil.dds",
-"mapAlpha"    : "mtl_girder_reil.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_girder_reil.png",
+"mapAlpha"    : "../../textures/mtl/mtl_girder_reil_alpha.png",
 "vertexColors" : false
 },
 
@@ -47,7 +47,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "crete_stolb_rail.dds",
+"mapDiffuse"    : "../../textures/crete/crete_stolb_rail.png",
 "vertexColors" : false
 }
 

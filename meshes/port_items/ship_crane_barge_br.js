@@ -22,7 +22,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_truba_pod_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_truba_pod_01.png",
 "vertexColors" : false
 },
 
@@ -34,7 +34,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_rja_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_rja_01.png",
 "vertexColors" : false
 },
 
@@ -46,7 +46,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_pod_01_stears.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_pod_01_stears.png",
 "vertexColors" : false
 },
 
@@ -58,7 +58,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_arm_2.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_arm_2.png",
 "vertexColors" : false
 },
 
@@ -70,7 +70,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_bochka_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_bochka_01.png",
 "vertexColors" : false
 }
 

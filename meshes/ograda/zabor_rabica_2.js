@@ -18,24 +18,22 @@
 "DbgIndex" : 0,
 "DbgName"  : "mtl_pod_01_S3",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_pod_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_pod_01.png",
 "vertexColors" : false
 },
 
 {
 "DbgIndex" : 1,
-"DbgName"  : "mtl_fence_01_S",
+"DbgName"  : "alpha_map",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_fence_01.dds",
-"mapAlpha"    : "mtl_fence_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_fence_01.png",
+"mapAlpha"    : "../../textures/mtl/mtl_fence_01_alpha.png",
 "vertexColors" : false
 }
 

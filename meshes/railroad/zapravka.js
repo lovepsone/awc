@@ -22,7 +22,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_truba_factory.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_truba_factory.png",
 "vertexColors" : false
 },
 
@@ -34,7 +34,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_bochka_02.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_bochka_02.png",
 "vertexColors" : false
 },
 
@@ -46,7 +46,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_elektro.dds",
+"mapDiffuse"    : "../../textures/prop/prop_elektro.png",
 "vertexColors" : false
 },
 
@@ -58,7 +58,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_truba_pod_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_truba_pod_01.png",
 "vertexColors" : false
 },
 
@@ -70,7 +70,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_railroad_light.dds",
+"mapDiffuse"    : "../../textures/prop/prop_railroad_light.png",
 "vertexColors" : false
 },
 
@@ -82,7 +82,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_ventil_pod_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_ventil_pod_01.png",
 "vertexColors" : false
 }
 

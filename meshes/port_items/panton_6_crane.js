@@ -18,11 +18,10 @@
 "DbgIndex" : 0,
 "DbgName"  : "prop_cable_bobbin_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "prop_cable_bobbin.dds",
+"mapDiffuse"    : "../../textures/prop/prop_cable_bobbin.png",
 "vertexColors" : false
 },
 
@@ -30,11 +29,10 @@
 "DbgIndex" : 1,
 "DbgName"  : "mtl_barrel_big_rust_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_barrel_big_rust.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_barrel_big_rust.png",
 "vertexColors" : false
 },
 
@@ -42,11 +40,10 @@
 "DbgIndex" : 2,
 "DbgName"  : "mtl_railroad_items_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_railroad_items.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_railroad_items.png",
 "vertexColors" : false
 },
 
@@ -54,11 +51,10 @@
 "DbgIndex" : 3,
 "DbgName"  : "mtl_floor_plate_03_S",
 "colorDiffuse"  : [0.5880, 0.5880, 0.5880],
-
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_floor_plate_03.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_floor_plate_03.png",
 "vertexColors" : false
 }
 

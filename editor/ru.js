@@ -35,6 +35,9 @@ typeLoc[29] = 'Мусор';
 typeLoc[30] = 'Ограда';
 typeLoc[31] = 'Портовые краны(корабли)';
 typeLoc[32] = 'Железная дорога';
+typeLoc[33] = 'Портовые контейнеры';
+typeLoc[34] = 'Для отдыха';
+typeLoc[35] = 'Тех. постройки';
 
 typeOBJ[0] =  []; // камни 0-13, 330-345,14-17
 typeOBJ[1] =  []; // кусты 18-35, 123-124
@@ -69,6 +72,9 @@ typeOBJ[29] = []; // 599 - 605
 typeOBJ[30] = []; // ograda 606 - 619
 typeOBJ[31] = []; // port_item 620 - 644
 typeOBJ[32] = []; // railroad 645 - 651
+typeOBJ[33] = []; // konteyner 652 - 665
+typeOBJ[34] = []; // relax_room 666 - 674
+typeOBJ[35] = []; // roof_cover 675 - 696
 
 var locInfo = '<hr>Управление редактором:"Q" локальные/глобальные координаты,<br>"W" перемещение объекта,<br>"E" ротация объекта,<br>"R" размер объекта,<br>"+" увеличить ось,<br>"-" уменьшить ось,<br>"A" добавление объекта,<br>Удерживая "Ctrl" привязка к начальной сетки по оси';
 var locListInfo = '3d объекты:';
@@ -728,6 +734,55 @@ locObj[648] = 'Семафор 4 типа';
 locObj[649] = 'Семафор 5 типа';
 locObj[650] = 'Стрелка';
 locObj[651] = 'Заправка';
+locObj[652] = 'Контейнер 1 типа';
+locObj[653] = 'Контейнер 2 типа';
+locObj[654] = 'Контейнер 3 типа';
+locObj[655] = 'Контейнер 4 типа';
+locObj[656] = 'Контейнер 5 типа';
+locObj[657] = 'Контейнер 6 типа';
+locObj[658] = 'Контейнер 7 типа';
+locObj[659] = 'Контейнер 8 типа';
+locObj[660] = 'Контейнер 9 типа';
+locObj[661] = 'Контейнер 10 типа';
+locObj[662] = 'Контейнер 11 типа';
+locObj[663] = 'Контейнер 12 типа';
+locObj[664] = 'Контейнер 13 типа';
+locObj[665] = 'Контейнер 14 типа';
+locObj[666] = 'Бочка-стул';
+locObj[667] = 'Бильярд';
+locObj[668] = 'Кальян';
+locObj[669] = 'Нарды';
+locObj[670] = 'Пиано 1 типа';
+locObj[671] = 'Пиано 2 типа';
+locObj[672] = 'Скамейка';
+locObj[673] = 'Стол 1 типа';
+locObj[674] = 'Стол 2 типа';
+locObj[675] = 'roof_cover 1';
+locObj[676] = 'roof_cover 2';
+locObj[677] = 'roof_cover 3';
+locObj[678] = 'Тех. здание 1 типа';
+locObj[679] = 'Тех. здание 2 типа';
+locObj[680] = 'Тех. здание 3 типа';
+locObj[681] = 'Тех. здание 4 типа';
+locObj[682] = 'Трубы 1 типа';
+locObj[683] = 'roof_cover 4';
+locObj[684] = 'roof_cover 5';
+locObj[685] = 'Тех. здание 5 типа';
+locObj[686] = 'Тех. здание 6 типа';
+locObj[687] = 'roof_cover 4';
+locObj[688] = 'roof_cover 5';
+locObj[689] = 'roof_cover 6';
+locObj[690] = 'roof_cover 7';
+locObj[691] = 'roof_cover 8';
+locObj[692] = 'roof_cover 9';
+locObj[693] = 'roof_cover 10';
+locObj[694] = 'roof_cover 11';
+locObj[695] = 'roof_cover 12';
+locObj[696] = '';
+locObj[697] = '';
+locObj[698] = '';
+locObj[699] = '';
+locObj[700] = '';
 
 for (var i = 0; i < locObj.length; i++)
 {
@@ -764,4 +819,7 @@ for (var i = 0; i < locObj.length; i++)
 	if (i >= 606 && i <= 619) typeOBJ[30].push(i); // ograda 606 - 619
 	if (i >= 620 && i <= 644) typeOBJ[31].push(i); // port_item 620 - 644
 	if (i >= 645 && i <= 651) typeOBJ[32].push(i); // railroad 645 - 651
+	if (i >= 652 && i <= 665) typeOBJ[33].push(i); // konteyner 652 - 665
+	if (i >= 666 && i <= 674) typeOBJ[34].push(i); // relax_room 666 - 674
+	if (i >= 675 && i <= 696) typeOBJ[35].push(i); // roof_cover 675 - 696
 }

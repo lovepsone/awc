@@ -22,7 +22,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_barrel_big_rust.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_barrel_big_rust.png",
 "vertexColors" : false
 },
 
@@ -34,7 +34,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "mtl_bochka_01.dds",
+"mapDiffuse"    : "../../textures/mtl/mtl_bochka_01.png",
 "vertexColors" : false
 },
 
@@ -46,7 +46,7 @@
 "colorSpecular"  : [0.9000, 0.9000, 0.9000],
 "opacity"  : 1.0,
 "specularCoef"  : 10.0,
-"mapDiffuse"    : "grnd_dirt_dark.dds",
+"mapDiffuse"    : "../../textures/grnd/grnd_dirt_dark.png",
 "vertexColors" : false
 }
 
