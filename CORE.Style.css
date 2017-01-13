@@ -1,4 +1,4 @@
-html, body
+tml, body
 {
 	width: 100%;
 	height: 100%;
@@ -22,34 +22,61 @@ body
 	background-color: rgba(0,0,0,0);
 }
 
-
-#LoaderObject
+#auth
 {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,0.0);
-	background-image: url(style/loader.jpg);
-	background-repeat: repeat-x;
-	background-position: center center;
-	color: #ffffff;
+	background: url(style/loginform.png) no-repeat;
+	display: box;
+	text-align: center;
 }
 
-#pLoaderObject
+.loginform
 {
-	position: absolute;
-	bottom: 80px;
-	width: 100%;
-}
-
-.progress-value
-{
-	position: absolute;
-	left: 50%;
-	bottom: 80px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	font-weight: 300;
+	font-size: 24px;
+	position: absolute;
+	top: 550px;
+	left: 500px;
+}
+.loginform input[type="text"]
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	height:18px;
+	width: 130px;
 	font-size: 14px;
-	color: #ff0000;
+	border-radius: 3px;
+	background: #ffffff !important;
+	outline: none;
+}
+
+.loginform input[type="password"]
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	height:18px;
+	width: 130px;
+	font-size: 14px;
+	border-radius: 3px;
+	background: #ffffff !important;
+	background-color: #ffffff !important;
+	outline: none;
+}
+
+.loginform input[type="submit"]
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 300;
+	height: 30px;
+	width: 130px;
+	border-radius: 4px;
+	background: url(style/button1.png) no-repeat;
+	outline: none;
 }
 
 input { outline: none; }
@@ -87,58 +114,6 @@ input:-webkit-autofill
 	cursor: pointer;
 }
 
-#chat
+#CORE
 {
-	position: absolute;
-}
-
-#msgChat
-{
-	width: 250px;
-	background-color:transparent;
-}
-
-#panel
-{
-	position: absolute;
-	width: 250px;
-	height: 100%;
-	background-color: #bbbbbb;
-	font-family: arial;
-	font-size: 14px;
-}
-
-#panel2
-{
-	position: absolute;
-	right: 1px;
-	width: 150px;
-	height: 100%;
-	background-color: #bbbbbb;
-	font-family: arial;
-	font-size: 14px;
-}
-
-#Err
-{
-	width: 240px;
-	color: #ff0000;
-	text-align: center;
-}
-
-#idobj
-{
-	width: 50px;
-	color: #00ffff;
-	text-align: center;
-}
-
-#eCORE
-{
-	position: absolute;
-	top: 0;
-	left: 0;
-	/* Scale out 2X from the corner */
-	-webkit-transform: scale3d(2.0, 2.0, 1.0);
-	-webkit-transform-origin: 0 0 0;
 }

@@ -8,12 +8,12 @@
 	echo '<script type="text/javascript" src="libs/jquery.min.js"></script>';
 	echo '<script type="text/javascript" src="libs/three.min.js"></script>';
 	echo '<script type="text/javascript" src="libs/socket.io.js"></script>';
+	echo '<script type="text/javascript" src="libs/SPE.min.js"></script>';
+	
 	echo '<script type="text/javascript" src="libs/Detector.js"></script>';
 	echo '<script type="text/javascript" src="libs/stats.min.js"></script>';
-	echo '<script type="text/javascript" src="libs/SPE.min.js"></script>';
-	echo '<script type="text/javascript" src="libs/DDSLoader.js"></script>';
-	echo '<script type="text/javascript" src="libs/FXAAShader.js"></script>';
-	echo '<link rel="stylesheet" href="style.css">';
+
+	echo '<link rel="stylesheet" href="CORE.Style.css">';
 	echo '</head><body>';
 
 	echo '<script type="text/javascript" src="CORE/HANDLER.Interface.js"></script>';
@@ -30,6 +30,7 @@
 	echo '<script type="text/javascript" src="CORE/CORE.Maps.js"></script>';
 	//
 	echo '<script type="text/javascript" src="CORE/CORE.Main.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Lobby.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Paricle.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Zone.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Weapon.js"></script>';
@@ -45,10 +46,10 @@
 	echo 'Password:<input type="password" id="AuthPassword"/></br>';
 	echo '<input id="btnAuth" type="submit" value="Auth"/></div></div>';
 	// loader main
-	echo '<div id="LoaderObject">';
+	/*echo '<div id="LoaderObject">';
 	echo '<progress id="pLoaderObject" value="0" max="100"></progress>';
 	echo '<span class="progress-value">0%</span>';
-	echo '</div>';
+	echo '</div>';*/
 
 	echo '<div id="blocker">';
 	echo '<div id="instructions"><span style="font-size:40px">Click to play</span><br />(W, A, S, D = Move, SPACE = Jump, MOUSE = Look around)</div>';
