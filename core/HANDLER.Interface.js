@@ -18,6 +18,7 @@ $(document).ready(function()
 	HANDLER.Interface.CORE.hide();
 	HANDLER.Interface.LoaderObject.hide();
 
+
 	HANDLER.Interface.btnAuth.click(function()
 	{
 		var l = $("#AuthLogin").val(), p = $("#AuthPassword").val();

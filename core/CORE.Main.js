@@ -2,9 +2,11 @@
 var CORE  = CORE || {};
 CORE.Main = CORE.Main || {};
 
+CORE.Main.Width			= window.innerWidth;
+CORE.Main.Height		= window.innerHeight;
 CORE.Main.renderer 		= new THREE.WebGLRenderer({antialias:true});
 CORE.Main.ControlPlayer 	= false;
-CORE.Main.camera 		= new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.001, 9000);
+CORE.Main.camera 		= new THREE.PerspectiveCamera(60, CORE.Main.Width/CORE.Main.Height, 0.001, 9000);
 CORE.Main.cameraType		= 1;
 
 CORE.Main.pitchCamera 		= new THREE.Object3D();
@@ -13,9 +15,13 @@ CORE.Main.yawCameraOffsetY	= 1.65;
 CORE.Main.VectorCameraOffset 	= new THREE.Vector3(0, 2.5, 2.5);
 
 CORE.Main.scene = new THREE.Scene();
-CORE.Main.clock = new THREE.Clock();
 CORE.Main.stats = new Stats();
 CORE.Main.prevTime = performance.now();
+
+CORE.Main.time			= Date.now();
+CORE.Main.clock 		= new THREE.Clock();
+
+
 var light;
 // loader objects
 CORE.Main.LoadObjects = false;
@@ -23,9 +29,10 @@ CORE.Main.LoadObjects = false;
 CORE.Main.INIT = function()
 {
 	CORE.Network.INT();
-
+	CORE.Lobby.INT(CORE.Main.scene, CORE.Main.camera);
+	CORE.Light.INT(CORE.Main.scene, CORE.Network.time.h);
 	CORE.Main.initRenderer();
-	CORE.Main.initCamera();
+	//CORE.Main.initCamera();
 	//CORE.Main.initScene();
 	//CORE.Main.initPlayers();
 	//CORE.Zone.Load('zone.js', CORE.Main.scene);
@@ -38,14 +45,14 @@ CORE.Main.initRenderer = function()
 {
 	CORE.Main.renderer.setClearColor(0x000000);
 	CORE.Main.renderer.setPixelRatio(window.devicePixelRatio);
-	CORE.Main.renderer.setSize(window.innerWidth, window.innerHeight);
-	CORE.Main.renderer.physicallyCorrectLights = true;
+	CORE.Main.renderer.setSize(CORE.Main.Width, CORE.Main.Height);
+	//CORE.Main.renderer.physicallyCorrectLights = true;
 	//CORE.Main.renderer.toneMapping = THREE.ReinhardToneMapping;
-	CORE.Main.renderer.gammaInput = true;
-	CORE.Main.renderer.gammaOutput = true;
-	CORE.WindowResize(CORE.Main.renderer, CORE.Main.camera);
-	CORE.FullScreen.bindKey({charCode : 'm'.charCodeAt(0)});
-	CORE.Main.renderer.shadowMap.enabled = CORE.Conf.Shadow;
+	//CORE.Main.renderer.gammaInput = true;
+	//CORE.Main.renderer.gammaOutput = true;
+	//CORE.WindowResize(CORE.Main.renderer, CORE.Main.camera);
+	//CORE.FullScreen.bindKey({charCode : 'm'.charCodeAt(0)});
+	//CORE.Main.renderer.shadowMap.enabled = CORE.Conf.Shadow;
 }
 
 CORE.Main.initCamera = function()
@@ -59,9 +66,18 @@ CORE.Main.initCamera = function()
 	CORE.Main.camera.lookAt(new THREE.Vector3(0, 2, 0));
 
 	//var ambientLight = new THREE.AmbientLight(0x464646);/*d2d2d2*/
-	/*CORE.Main.scene.add(ambientLight);
+	//CORE.Main.scene.add(ambientLight);
 
-	var bulbGeometry = new THREE.SphereGeometry(0.12, 16, 8);
+	/*var dirLight = new THREE.DirectionalLight( 0xffffff, 1 );
+				dirLight.color.setHSL( 0.1, 1, 0.95 );
+				dirLight.position.set( -1, 1.75, 1 );
+				dirLight.position.multiplyScalar( 50 );
+	CORE.Main.scene.add( dirLight );
+				dirLight.castShadow = true;
+				dirLight.shadow.mapSize.width = 2048;
+				dirLight.shadow.mapSize.height = 2048;*/
+				
+	/*var bulbGeometry = new THREE.SphereGeometry(0.12, 16, 8);
 	var bulbMat = new THREE.MeshStandardMaterial({emissive: 0xffffee, emissiveIntensity: 1, color: 0x000000});
 
 	light = new THREE.DirectionalLight(0xffffff, 1);
@@ -216,7 +232,9 @@ CORE.Main.UpdateData = function(time, _delta)
 var lobbyl = false;
 CORE.Main.Render = function()
 {
-	if (!CORE.LoaderObjects.LoadObj)
+	var delta = (Date.now() - CORE.Main.time);
+
+	/*if (!CORE.LoaderObjects.LoadObj)
 	{
 		CORE.LoaderObjects.LoadObjects();
 		CORE.LoaderObjects.LoadObj = true;
@@ -234,11 +252,11 @@ CORE.Main.Render = function()
 	}
 	else if (lobbyl)
 	{
-		CORE.Network.SMG_TIMEGAME();
+		CORE.Network.SMG_TIMEGAME();*/
 		//var time = CORE.Network.time.h*60 + CORE.Network.time.m;
 		//light.position.x = 10 * Math.cos(time/** 0.0003*/);
 		//light.position.y = 10 * Math.sin(time/** 0.0003*/);
-	}
+	//}
 	//if (!CORE.Main.ControlPlayer)
 		//return;
 
@@ -257,11 +275,17 @@ CORE.Main.Render = function()
 	light.position.x = 10 * Math.cos(time* 0.0003);
 	light.position.y = 10 * Math.sin(time* 0.0003);*/
 	
-	if (CORE.Light.Loaded) CORE.Light.Update(CORE.Network.time.h);
+	//if (CORE.Light.Loaded) CORE.Light.Update(CORE.Network.time.h);
+	
+	CORE.Lobby.Update(CORE.Main.clock.getDelta());
+	//update light
+	//CORE.Network.SMG_TIMEGAME();
+	CORE.Light.Update(CORE.Network.time.h);
 	
 	CORE.Main.stats.update();
-	CORE.Main.renderer.clear();
-	CORE.Main.renderer.clearDepth();
+	//math time
+	CORE.Main.time = Date.now();
+	
 	CORE.Main.renderer.render(CORE.Main.scene, CORE.Main.camera);
 }
 
@@ -275,7 +299,7 @@ CORE.Main.initPlayers = function(_data)
 
 CORE.Main.onWindowResize = function()
 {
-	CORE.Main.camera.aspect = window.innerWidth / window.innerHeight;
+	CORE.Main.camera.aspect = CORE.Main.Width / CORE.Main.Height;
 	CORE.Main.camera.updateProjectionMatrix();
-	CORE.Main.renderer.setSize(window.innerWidth, window.innerHeight);
+	CORE.Main.renderer.setSize(CORE.Main.Width, CORE.Main.Height);
 }

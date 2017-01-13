@@ -5,6 +5,7 @@ CORE.Network.Anim = CORE.Network.Anim || {};
 
 CORE.Network.URL = CORE.Conf.url;
 CORE.Network.Auth = false;
+
 CORE.Network.inGame = false;
 CORE.Network.socket = null;
 CORE.Network.player = null;
@@ -28,14 +29,18 @@ CORE.Network.SMG_AUTHCLIENT = function(login, password)
 	CORE.Network.socket.emit('SMG_AUTHCLIENT', {l:login, p: password});
 	CORE.Network.socket.on('SMG_AUTHCLIENT', function(_AUTHCLIENT)
 	{
-		CORE.Network.Auth = true;
 		//CORE.Network.inGame = true;
 		//CORE.Main.initPlayers(_AUTHCLIENT);
+		CORE.Network.Auth = true;
+		CORE.Lobby.start = true; // start load lobby
 		HANDLER.Interface.auth.hide();
+		HANDLER.Interface.CORE.show(); // start load lobby
+		
 		//HANDLER.Interface.blocker.show();
-		HANDLER.Interface.CORE.show();
-		HANDLER.Interface.LoaderObject.show();
+		//HANDLER.Interface.LoaderObject.show();
 		CORE.Network.player = _AUTHCLIENT;
+		
+		CORE.Network.SMG_TIMEGAME(); // update time
 	});	
 }
 
