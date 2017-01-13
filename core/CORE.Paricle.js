@@ -7,17 +7,18 @@ CORE.count	= 0;
 CORE.Emiter	= {};
 
 
-CORE.Paricle.Fire = function(_scene)
+CORE.Paricle.Fire = function(_scene, position, rotation, size)
 {
 	CORE.Group[CORE.count] = new SPE.Group(
 	{
 		texture:
 		{
-			value: THREE.ImageUtils.loadTexture('textures/sprite-flame2.jpg'),
-			frames: new THREE.Vector2( 8, 4 ),
-                        // frameCount: 8,
-                        loop: 2
+			value: THREE.ImageUtils.loadTexture('textures/sprite/sprite-flame2.jpg'),
+			frames: new THREE.Vector2(8, 4),
+			//frameCount: 8,
+                        loop: 1
 		},
+		//fixedTimeStep: 1,
 		depthTest: true,
 		//scale: window.innerHeight / 2.0
         });
@@ -27,12 +28,12 @@ CORE.Paricle.Fire = function(_scene)
 		particleCount: 200,
 		maxAge:
 		{
-			value: 2,
-			spread: 0
+			value: 1,
+			spread: 1.5
                 },
         	position:
 		{
-			value: new THREE.Vector3(1.5, 0.2, -1.3),
+			value: position,
 			spread: new THREE.Vector3( 0, 0, 0 ),
 			spreadClamp: new THREE.Vector3( 0, 0, 0 ),
 			distribution: SPE.distributions.BOX,
@@ -40,9 +41,9 @@ CORE.Paricle.Fire = function(_scene)
                 },
 		radius:
 		{
-			value: 5,
+			value: 3,
 			spread: 0,
-			scale: new THREE.Vector3( 1, 1, 1 ),
+			scale: new THREE.Vector3( 0.5, 1, 0.5),
 			spreadClamp: new THREE.Vector3( 2, 2, 2 ),
 		},
 		velocity:
@@ -50,20 +51,20 @@ CORE.Paricle.Fire = function(_scene)
 			value: new THREE.Vector3( 0, 0.5, 0 ),
 			spread: new THREE.Vector3( 0, 0, 0 ),
 			// distribution: SPE.distributions.BOX,
-			randomise: true
+			randomise: false
                 },
 		acceleration:
 		{
 			value: new THREE.Vector3( 0, 0, 0 ),
 			spread: new THREE.Vector3( 0, 0, 0 ),
 			// distribution: SPE.distributions.BOX,
-			randomise: true
+			randomise: false
 		},
 		drag:
 		{
 			value: 0.5,
 			spread: 0,
-			randomise: true
+			randomise: false
 		},
 		wiggle:
 		{
@@ -81,13 +82,13 @@ CORE.Paricle.Fire = function(_scene)
 		},
 		size:
 		{
-			value: 3,
+			value: size,
 			spread: 0
 		},
 		opacity:
 		{
-			value: 0.02,
-			randomise: true
+			value: 0.12,
+			randomise: false
 		},
 		angle:
 		{
