@@ -21,10 +21,10 @@ CORE.Maps.LoadLobby = function(_scene)
 		_scene.add(CORE.Maps.mesh[0]);
 	});
 
-	for (var i = 0; i < MAPS.Lobby.mesh.length; i++)
+	/*for (var i = 0; i < MAPS.Lobby.mesh.length; i++)
 	{
 		var buf = CORE.LoaderObjects.CloneObject('lobby', MAPS.Lobby.mesh[i].id, MAPS.Lobby.mesh[i].position, MAPS.Lobby.mesh[i].rotation);
 		CORE.Maps.GroupMesh.push(buf);
 		_scene.add(buf);
-	}
+	}*/
 }
