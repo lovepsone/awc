@@ -31,6 +31,7 @@
 	//
 	echo '<script type="text/javascript" src="CORE/CORE.Main.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Lobby.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Sounds.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Paricle.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Zone.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Weapon.js"></script>';

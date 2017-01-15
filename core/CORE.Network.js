@@ -32,10 +32,10 @@ CORE.Network.SMG_AUTHCLIENT = function(login, password)
 		//CORE.Network.inGame = true;
 		//CORE.Main.initPlayers(_AUTHCLIENT);
 		CORE.Network.Auth = true;
-		CORE.Lobby.start = true; // start load lobby
+		
 		HANDLER.Interface.auth.hide();
 		HANDLER.Interface.CORE.show(); // start load lobby
-		
+		CORE.Sounds.Play(0);
 		//HANDLER.Interface.blocker.show();
 		//HANDLER.Interface.LoaderObject.show();
 		CORE.Network.player = _AUTHCLIENT;

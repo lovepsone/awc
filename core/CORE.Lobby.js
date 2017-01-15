@@ -1,11 +1,13 @@
 var CORE = CORE || {};
 CORE.Lobby = CORE.Lobby || {};
 
-CORE.Lobby.start 	= false;
+CORE.Lobby.Start 	= false;
 CORE.Lobby.end 		= false;
+
 CORE.Lobby.loader 	= new THREE.JSONLoader();
 CORE.Lobby.pMixer 	= {};
 CORE.Lobby.action	= {};
+CORE.Lobby.Sounds	= [];
 
 CORE.Lobby.INT = function(_scene, _camera)
 {
@@ -17,6 +19,8 @@ CORE.Lobby.INT = function(_scene, _camera)
 
 	CORE.Paricle.Fire(_scene, new THREE.Vector3(1.3, 0.3, 0.70), new THREE.Vector3(0, 0, 0), 2.6);
 	CORE.Light.FireLight(_scene, "fLobyy", new THREE.Vector3(1.3, 0.3, 0.70));
+	
+	CORE.Sounds.LoadAudio(_scene, 0, 0, 1, new THREE.Vector3(0, 0, 0));
 }
 
 CORE.Lobby.LoadMap = function(_scene)
@@ -109,6 +113,14 @@ CORE.Lobby.LoadPlayerMesh = function(_scene)
 
 		_scene.add(mesh);
 	});
+}
+
+CORE.Lobby.StartSounds = function()
+{
+	for (var i = 0; i < CORE.Lobby.Sounds.length; i++)
+	{
+		//CORE.Lobby.Sounds[i].play();
+	}
 }
 
 CORE.Lobby.Update = function(delta)

@@ -31,6 +31,7 @@ CORE.Main.INIT = function()
 	CORE.Network.INT();
 	CORE.Lobby.INT(CORE.Main.scene, CORE.Main.camera);
 	CORE.Light.INT(CORE.Main.scene, CORE.Network.time.h);
+	CORE.Sounds.INT(CORE.Main.camera);
 	CORE.Main.initRenderer();
 	//CORE.Main.initCamera();
 	//CORE.Main.initScene();
