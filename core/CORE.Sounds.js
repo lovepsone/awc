@@ -48,6 +48,11 @@ CORE.Sounds.Play = function(nid)
 		CORE.Sounds.Sounds[nid].play();
 }
 
+CORE.Sounds.isPlay = function(nid)
+{
+	return CORE.Sounds.Sounds[nid].isPlaying;
+}
+
 CORE.Sounds.Volume = function(nid, val)
 {
 	CORE.Sounds.Sounds[nid].setVolume(vol);
