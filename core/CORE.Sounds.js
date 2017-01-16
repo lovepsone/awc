@@ -22,19 +22,19 @@ CORE.Sounds.INT = function(_camera)
 	_camera.add(CORE.Sounds.listener);
 }
 
-CORE.Sounds.LoadAudio = function(_scene, id, nid, vol, p)
+CORE.Sounds.LoadAudio = function(_scene, id, nid, vol, loop, position)
 {
 	CORE.Sounds.Sounds[nid] = {};
 	CORE.Sounds.Sounds[nid] = new THREE.PositionalAudio(CORE.Sounds.listener);
 	
 	CORE.Sounds.Meshes[nid] = new THREE.Mesh(CORE.Sounds.Geometry, CORE.Sounds.Material);
-	CORE.Sounds.Meshes[nid].position.copy(p);
+	CORE.Sounds.Meshes[nid].position.copy(position);
 	_scene.add(CORE.Sounds.Meshes[nid]);
 	
 	CORE.Sounds.Loader.load(CORE.Sounds.Audios[id], function(buffer)
 	{
 		CORE.Sounds.Sounds[nid].setBuffer(buffer);
-		CORE.Sounds.Sounds[nid].setLoop(true);
+		CORE.Sounds.Sounds[nid].setLoop(loop);
 		CORE.Sounds.Sounds[nid].setVolume(vol);
 		//CORE.Sounds.Sounds[nid].stop();
 	});
@@ -44,5 +44,16 @@ CORE.Sounds.LoadAudio = function(_scene, id, nid, vol, p)
 
 CORE.Sounds.Play = function(nid)
 {
-	CORE.Sounds.Sounds[nid].play();
+	if (!CORE.Sounds.Sounds[nid].isPlaying)
+		CORE.Sounds.Sounds[nid].play();
+}
+
+CORE.Sounds.Volume = function(nid, val)
+{
+	CORE.Sounds.Sounds[nid].setVolume(vol);
+}
+
+CORE.Sounds.Loop = function(nid, val)
+{
+	CORE.Sounds.Sounds[nid].setLoop(val);
 }
