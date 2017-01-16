@@ -1,19 +1,18 @@
 /** @namespace */
 var CORE  = CORE || {};
 CORE.Paricle = CORE.Paricle || {};
-
-CORE.Group 	= [];
-CORE.count	= 0;
-CORE.Emiter	= {};
-
+CORE.Paricle.TextureLoader	= new THREE.TextureLoader();
+CORE.Paricle.Group 		= [];
+CORE.Paricle.count		= 0;
+CORE.Paricle.Emiter		= {};
 
 CORE.Paricle.Fire = function(_scene, position, rotation, size)
 {
-	CORE.Group[CORE.count] = new SPE.Group(
+	CORE.Paricle.Group[CORE.count] = new SPE.Group(
 	{
 		texture:
 		{
-			value: THREE.ImageUtils.loadTexture('textures/sprite/sprite-flame2.jpg'),
+			value: CORE.Paricle.TextureLoader.load('textures/sprite/sprite-flame2.jpg', function(texture){return texture;}),
 			frames: new THREE.Vector2(8, 4),
 			//frameCount: 8,
                         loop: 1
@@ -23,7 +22,7 @@ CORE.Paricle.Fire = function(_scene, position, rotation, size)
 		//scale: window.innerHeight / 2.0
         });
 
-	CORE.Emiter = new SPE.Emitter(
+	CORE.Paricle.Emiter = new SPE.Emitter(
 	{
 		particleCount: 200,
 		maxAge:
@@ -97,15 +96,15 @@ CORE.Paricle.Fire = function(_scene, position, rotation, size)
 		}
 	});
 
-	CORE.Group[CORE.count].addEmitter(CORE.Emiter);
-	_scene.add(CORE.Group[CORE.count].mesh);
-	CORE.count++;
+	CORE.Paricle.Group[CORE.Paricle.count].addEmitter(CORE.Paricle.Emiter);
+	_scene.add(CORE.Paricle.Group[CORE.Paricle.count].mesh);
+	CORE.Paricle.count++;
 }
 
 CORE.Paricle.Update = function(dt)
 {
-	for (var i = 0; i < CORE.Group.length; i++)
+	for (var i = 0; i < CORE.Paricle.Group.length; i++)
 	{
-		CORE.Group[i].tick(dt);
+		CORE.Paricle.Group[i].tick(dt);
 	}
 }
