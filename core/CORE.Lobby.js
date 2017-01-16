@@ -1,13 +1,16 @@
 var CORE = CORE || {};
 CORE.Lobby = CORE.Lobby || {};
 
-CORE.Lobby.endLoad 	= false;
-CORE.Lobby.loader 	= new THREE.JSONLoader();
-CORE.Lobby.pMixer 	= {};
-CORE.Lobby.action	= {};
-CORE.Lobby.RndSondLast	= 1;
-CORE.Lobby.Sounds	= [];
-
+CORE.Lobby.endLoad 		= false;
+CORE.Lobby.loader 		= new THREE.JSONLoader();
+CORE.Lobby.pMixer 		= {};
+CORE.Lobby.action		= {};
+CORE.Lobby.RndSondLast		= 1;
+CORE.Lobby.Sounds		= [];
+CORE.Lobby.GroupStaticMesh 	= [];
+CORE.Lobby.raycaster		= new THREE.Raycaster();
+CORE.Lobby.mouse 		= new THREE.Vector2();
+CORE.Lobby.idsGlowMeshes	= [161];
 CORE.Lobby.INT = function(_scene, _camera)
 {
 	CORE.Lobby.LoadMap(_scene);
@@ -30,6 +33,78 @@ CORE.Lobby.INT = function(_scene, _camera)
 			CORE.Sounds.LoadAudio(_scene, i, i, 0.5, false, new THREE.Vector3(0, 0, 0));
 		}
 	}
+
+	document.addEventListener('mousemove', function(event)
+	{
+		event.preventDefault();
+		CORE.Lobby.mouse.x = (event.clientX / CORE.Main.Width) * 2 - 1;
+		CORE.Lobby.mouse.y = - (event.clientY / CORE.Main.Height) * 2 + 1;
+		
+		CORE.Lobby.raycaster.setFromCamera(CORE.Lobby.mouse, _camera);
+		var intersects = CORE.Lobby.raycaster.intersectObjects(CORE.Lobby.GroupStaticMesh);
+		if (intersects.length > 0)
+		{
+			var intersected = intersects[0].object;
+			var id = CORE.Lobby.CheckGlowStaticObject(intersected.name);
+			
+			if (id > 0)
+			{
+				document.body.style.cursor = 'pointer';
+				var mesh = _scene.getObjectByName("glow"+id);
+				mesh.visible = true;
+			}
+			else
+			{
+				for (var i = 0; i < CORE.Lobby.idsGlowMeshes.length; i++)
+				{
+					var mesh = _scene.getObjectByName("glow"+CORE.Lobby.idsGlowMeshes[i]);
+					mesh.visible = false;
+				}
+				document.body.style.cursor = 'auto';
+			}
+			
+		}
+	}
+	, false );
+}
+
+CORE.Lobby.CheckGlowStaticObject = function(id)
+{
+	var result = 0;
+	switch(id)
+	{
+		case 161: result = 161; // склад
+			break;
+	}
+	return result;
+}
+
+CORE.Lobby.CreateGlowStaticObject = function(_scene, id, g, p, r, s)
+{
+	var glowMaterial = new THREE.ShaderMaterial( 
+	{
+		uniforms: 
+		{ 
+			"c":   { type: "f", value: 1.0 },
+			"p":   { type: "f", value: 1.4 },
+			glowColor: { type: "c", value: new THREE.Color(0xffff00) },
+			viewVector: { type: "v3", value: CORE.Main.camera.position }
+		},
+		vertexShader: document.getElementById('vertexShader').textContent,
+		fragmentShader: document.getElementById('fragmentShader').textContent,
+		side: THREE.FrontSide,
+		blending: THREE.AdditiveBlending,
+		transparent: true
+	});
+	var glowMesh = new THREE.Mesh(g, glowMaterial);
+	glowMesh.visible = false;
+	glowMesh.name = "glow"+id;
+	glowMesh.position.copy(p);
+	glowMesh.rotation.x = r.x;
+	glowMesh.rotation.y = r.y;
+	glowMesh.rotation.z = r.z;
+	glowMesh.scale.copy(s);
+	_scene.add(glowMesh);
 }
 
 CORE.Lobby.LoadMap = function(_scene)
@@ -61,6 +136,11 @@ CORE.Lobby.LoadStaticMesh = function(_scene, id, p, r, s)
 		texture.wrapS = texture.wrapT = THREE.RepeatWrapping; 
 		texture.repeat.set(1, 1);
 		geometry.computeVertexNormals();
+
+		if (CORE.Lobby.CheckGlowStaticObject(id) > 0)
+		{
+			CORE.Lobby.CreateGlowStaticObject(_scene, id, geometry, p, r, s);
+		}
 
 		for (var j = 0; j < materials.length; j++)
 		{
@@ -97,6 +177,7 @@ CORE.Lobby.LoadStaticMesh = function(_scene, id, p, r, s)
 		mesh.rotation.x = r.x;
 		mesh.rotation.y = r.y;
 		mesh.rotation.z = r.z;
+		CORE.Lobby.GroupStaticMesh.push(mesh);
 		_scene.add(mesh);
 	});
 }
