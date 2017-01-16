@@ -37,14 +37,14 @@ CORE.Lobby.INT = function(_scene, _camera)
 	}
 
 	document.addEventListener('mousemove', function(event)
-	{
+	{	
 		event.preventDefault();
 		CORE.Lobby.mouse.x = (event.clientX / CORE.Main.Width) * 2 - 1;
 		CORE.Lobby.mouse.y = - (event.clientY / CORE.Main.Height) * 2 + 1;
 		
 		CORE.Lobby.raycaster.setFromCamera(CORE.Lobby.mouse, _camera);
 		var intersects = CORE.Lobby.raycaster.intersectObjects(CORE.Lobby.GroupStaticMesh);
-		if (intersects.length > 0)
+		if (intersects.length > 0 && CORE.Lobby.endLoad)
 		{
 			var intersected = intersects[0].object;
 			var id = CORE.Lobby.CheckGlowStaticObject(intersected.name);
