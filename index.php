@@ -48,8 +48,9 @@
 	echo 'Password:<input type="password" id="AuthPassword"/></br>';
 	echo '<input id="btnAuth" type="submit" value="Auth"/></div></div>';
 	
-	echo '<div id="glow" aligin="center">dasdasd';
+	echo '<div id="glow" aligin="center">';
 	echo '</div>';
+	
 	// loader main
 	/*echo '<div id="LoaderObject">';
 	echo '<progress id="pLoaderObject" value="0" max="100"></progress>';
