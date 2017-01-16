@@ -49,6 +49,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 			
 			if (id > 0)
 			{
+				HANDLER.Interface.glow.show();
 				document.body.style.cursor = 'pointer';
 				var mesh = _scene.getObjectByName("glow"+id);
 				mesh.visible = true;
@@ -60,6 +61,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 					var mesh = _scene.getObjectByName("glow"+CORE.Lobby.idsGlowMeshes[i]);
 					mesh.visible = false;
 				}
+				HANDLER.Interface.glow.hide();
 				document.body.style.cursor = 'auto';
 			}
 			

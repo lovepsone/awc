@@ -17,6 +17,7 @@
 	echo '</head><body>';
 
 	echo '<script type="text/javascript" src="CORE/HANDLER.Interface.js"></script>';
+	echo '<script type="text/javascript" src="locale/ru.utf.js"></script>';
 
 	echo '<script type="text/javascript" src="CORE/CORE.Conf.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.WPNConf.js"></script>';
@@ -46,6 +47,9 @@
 	echo '<div class="loginform">Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="AuthLogin"/></br>';
 	echo 'Password:<input type="password" id="AuthPassword"/></br>';
 	echo '<input id="btnAuth" type="submit" value="Auth"/></div></div>';
+	
+	echo '<div id="glow" aligin="center">dasdasd';
+	echo '</div>';
 	// loader main
 	/*echo '<div id="LoaderObject">';
 	echo '<progress id="pLoaderObject" value="0" max="100"></progress>';
