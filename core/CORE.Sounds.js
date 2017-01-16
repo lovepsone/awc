@@ -9,7 +9,13 @@ CORE.Sounds.Meshes	= [];
 CORE.Sounds.Sounds	= [];
 
 CORE.Sounds.Audios	= [];
-CORE.Sounds.Audios[0] 	= 'sounds/particle/fire2.ogg';
+CORE.Sounds.Audios[0] 	= 'sounds/ambient/fire2.ogg';
+
+CORE.Sounds.Audios[1] 	= 'sounds/random/rnd_cr1.ogg'
+CORE.Sounds.Audios[2] 	= 'sounds/random/rnd_m-16_4.ogg';
+CORE.Sounds.Audios[3] 	= 'sounds/random/rnd_m-249.ogg';
+CORE.Sounds.Audios[4] 	= 'sounds/random/rnd_scr5.ogg';
+CORE.Sounds.Audios[5] 	= 'sounds/random/rnd_the_horror4.ogg';
 
 CORE.Sounds.INT = function(_camera)
 {
