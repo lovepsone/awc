@@ -1,12 +1,11 @@
 var CORE = CORE || {};
 CORE.Lobby = CORE.Lobby || {};
 
-CORE.Lobby.Start 	= false;
-CORE.Lobby.end 		= false;
-
+CORE.Lobby.endLoad 	= false;
 CORE.Lobby.loader 	= new THREE.JSONLoader();
 CORE.Lobby.pMixer 	= {};
 CORE.Lobby.action	= {};
+CORE.Lobby.RndSondLast	= 1;
 CORE.Lobby.Sounds	= [];
 
 CORE.Lobby.INT = function(_scene, _camera)
@@ -129,8 +128,26 @@ CORE.Lobby.loader.manager.onLoad = function()
 {
 }
 
+CORE.Lobby.RndSounds = function(min, max, maxsounds)
+{
+	if (!CORE.Sounds.isPlay(CORE.Lobby.RndSondLast))
+	{
+		var val = Math.floor(Math.random() * (max - min)) + min;
+		if (val <= maxsounds)
+		{
+			CORE.Lobby.RndSondLast = val;
+			CORE.Sounds.Play(CORE.Lobby.RndSondLast);
+		}
+	}
+	
+}
+
 CORE.Lobby.Update = function(delta)
 {
-	CORE.Lobby.pMixer.update(0.75*delta);
-	CORE.Paricle.Update(delta);
+	if (CORE.Lobby.endLoad)
+	{
+		CORE.Lobby.pMixer.update(0.75*delta);
+		CORE.Paricle.Update(delta);
+		//CORE.Lobby.RndSounds(1, 35, 5);
+	}
 }

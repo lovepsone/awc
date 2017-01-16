@@ -35,6 +35,7 @@ CORE.Network.SMG_AUTHCLIENT = function(login, password)
 		
 		HANDLER.Interface.auth.hide();
 		HANDLER.Interface.CORE.show(); // start load lobby
+		CORE.Lobby.endLoad = true;
 		CORE.Sounds.Play(0);
 		//HANDLER.Interface.blocker.show();
 		//HANDLER.Interface.LoaderObject.show();
