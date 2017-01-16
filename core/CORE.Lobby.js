@@ -11,6 +11,8 @@ CORE.Lobby.GroupStaticMesh 	= [];
 CORE.Lobby.raycaster		= new THREE.Raycaster();
 CORE.Lobby.mouse 		= new THREE.Vector2();
 CORE.Lobby.idsGlowMeshes	= [161];
+CORE.Lobby.localeGlow		= null;
+
 CORE.Lobby.INT = function(_scene, _camera)
 {
 	CORE.Lobby.LoadMap(_scene);
@@ -49,6 +51,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 			
 			if (id > 0)
 			{
+				HANDLER.Interface.glow.text(CORE.Lobby.localeGlow);
 				HANDLER.Interface.glow.show();
 				document.body.style.cursor = 'pointer';
 				var mesh = _scene.getObjectByName("glow"+id);
@@ -76,6 +79,7 @@ CORE.Lobby.CheckGlowStaticObject = function(id)
 	switch(id)
 	{
 		case 161: result = 161; // склад
+			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[0];
 			break;
 	}
 	return result;
