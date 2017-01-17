@@ -190,8 +190,8 @@ CORE.MainEditor.initScene = function()
 		side: THREE.BackSide
 	}));
 
-	var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
-	var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
+	var skyMaterial = new THREE.MultiMaterial(materialArray);
+	var skyBox = new THREE.Mesh(skyGeometry, skyMaterial);
 	skyBox.position.y = 400;
 	//skyBox.rotation.y = Math.PI/4;
 	CORE.MainEditor.scene.add(skyBox);
