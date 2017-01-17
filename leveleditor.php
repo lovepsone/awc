@@ -11,7 +11,6 @@
 	echo '<script type="text/javascript" src="libs/stats.min.js"></script>';
 	echo '<script type="text/javascript" src="editor/ru.js"></script>';
 	echo '<script type="text/javascript" src="libs/threex.rendererstats.js"></script>';
-	echo '<script type="text/javascript" src="libs/GeometryUtils.js"></script>';
 	echo '<link rel="stylesheet" href="style.css">';
 	echo '</head><body>';
 
