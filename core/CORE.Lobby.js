@@ -51,6 +51,14 @@ CORE.Lobby.INT = function(_scene, _camera)
 
 			if (id > 0)
 			{
+				for (var i = 0; i < CORE.Lobby.idsGlowMeshes.length; i++)
+				{
+					if (CORE.Lobby.idsGlowMeshes[i] != id)
+					{
+						var mesh = _scene.getObjectByName("glow"+CORE.Lobby.idsGlowMeshes[i]);
+						mesh.visible = false;
+					}
+				}
 				HANDLER.Interface.glow.text(CORE.Lobby.localeGlow);
 				HANDLER.Interface.glow.show();
 				document.body.style.cursor = 'pointer';
