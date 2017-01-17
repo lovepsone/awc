@@ -941,7 +941,6 @@ CORE.Object3D.obj[671] = {name: 'piano_brocken', 	path: 'meshes/relax_room/piano
 CORE.Object3D.obj[672] = {name: 'skameyka', 		path: 'meshes/relax_room/skameyka.js', collision: true};
 CORE.Object3D.obj[673] = {name: 'table', 		path: 'meshes/relax_room/table.js', collision: true};
 CORE.Object3D.obj[674] = {name: 'table2', 		path: 'meshes/relax_room/table2.js', collision: true};
-
 CORE.Object3D.obj[675] = {name: 'roof_cover_01', 	path: 'meshes/roof_cover/roof_cover_02.js', collision: true};
 CORE.Object3D.obj[676] = {name: 'roof_cover_02', 	path: 'meshes/roof_cover/roof_cover_03.js', collision: true};
 CORE.Object3D.obj[677] = {name: 'roof_cover_03', 	path: 'meshes/roof_cover/roof_cover_03_br.js', collision: true};
@@ -965,5 +964,23 @@ CORE.Object3D.obj[694] = {name: 'roof_cover_tubes_03', 	path: 'meshes/roof_cover
 CORE.Object3D.obj[695] = {name: 'roof_cover_tubes_04', 	path: 'meshes/roof_cover/roof_cover_tubes_04.js', collision: true};
 CORE.Object3D.obj[696] = {name: 'roof_lightning_rod', 	path: 'meshes/roof_cover/roof_lightning_rod.js', collision: true};
 
-//CORE.Object3D.obj[675] = {name: '', 	path: 'meshes/roof_cover/', collision: true};
+CORE.Object3D.obj[697] = {name: 'equipment_box_01', 	path: 'meshes/equipment/equipment_box_01.js', collision: true};
+CORE.Object3D.obj[698] = {name: 'equipment_box_02', 	path: 'meshes/equipment/equipment_box_02.js', collision: true};
+CORE.Object3D.obj[699] = {name: 'equipment_box_03', 	path: 'meshes/equipment/equipment_box_03.js', collision: true};
+CORE.Object3D.obj[700] = {name: 'electric_box_01', 	path: 'meshes/equipment/equipment_electric_box_01.js', collision: true};
+CORE.Object3D.obj[701] = {name: 'electric_box_02', 	path: 'meshes/equipment/equipment_electric_box_02.js', collision: true};
+CORE.Object3D.obj[702] = {name: 'equipment_hatch_01', 	path: 'meshes/equipment/equipment_hatch_01.js', collision: true};
+CORE.Object3D.obj[703] = {name: 'equipment_hatch_02', 	path: 'meshes/equipment/equipment_hatch_02.js', collision: true};
+CORE.Object3D.obj[704] = {name: 'equipment_notebook', 	path: 'meshes/equipment/equipment_notebook.js', collision: true};
+CORE.Object3D.obj[705] = {name: 'equipment_pipe_01', 	path: 'meshes/equipment/equipment_pipe_01.js', collision: true};
+CORE.Object3D.obj[706] = {name: 'equipment_pipe_02', 	path: 'meshes/equipment/equipment_pipe_02.js', collision: true};
+CORE.Object3D.obj[707] = {name: 'rucksack_01', 		path: 'meshes/equipment/equipment_rucksack_01.js', collision: true};
+CORE.Object3D.obj[708] = {name: 'rucksack_02', 		path: 'meshes/equipment/equipment_rucksack_02.js', collision: true};
+CORE.Object3D.obj[709] = {name: 'equipment_seif_01', 	path: 'meshes/equipment/equipment_seif_01.js', collision: true};
+CORE.Object3D.obj[710] = {name: 'equipment_seif_02', 	path: 'meshes/equipment/equipment_seif_02.js', collision: true};
+CORE.Object3D.obj[711] = {name: 'equipment_seif_03', 	path: 'meshes/equipment/equipment_seif_03.js', collision: true};
+CORE.Object3D.obj[712] = {name: 'trees_stump', 		path: 'meshes/equipment/equipment_trees_stump_01.js', collision: true};
+CORE.Object3D.obj[713] = {name: 'equipment_zaz968', 	path: 'meshes/equipment/equipment_zaz968.js', collision: true};
+
+//CORE.Object3D.obj[697] = {name: '', 	path: 'meshes/equipment/', collision: true};
 
