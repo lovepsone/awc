@@ -10,7 +10,7 @@ CORE.Lobby.Sounds		= [];
 CORE.Lobby.GroupStaticMesh 	= [];
 CORE.Lobby.raycaster		= new THREE.Raycaster();
 CORE.Lobby.mouse 		= new THREE.Vector2();
-CORE.Lobby.idsGlowMeshes	= [161];
+CORE.Lobby.idsGlowMeshes	= [161, 707, 543, 704, 617];
 CORE.Lobby.localeGlow		= null;
 
 CORE.Lobby.INT = function(_scene, _camera)
@@ -48,7 +48,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 		{
 			var intersected = intersects[0].object;
 			var id = CORE.Lobby.CheckGlowStaticObject(intersected.name);
-			
+
 			if (id > 0)
 			{
 				HANDLER.Interface.glow.text(CORE.Lobby.localeGlow);
@@ -78,8 +78,20 @@ CORE.Lobby.CheckGlowStaticObject = function(id)
 	var result = 0;
 	switch(id)
 	{
-		case 161: result = 161; // склад
+		case 161: result = 161; // storage
 			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[0];
+			break;
+		case 707: result = 707; // Inventory
+			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[1];
+			break;
+		case 543: result = 543; // Auction
+			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[2];
+			break;
+		case 704: result = 704; // Personal computer
+			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[3];
+			break;
+		case 617: result = 617; // In the gaming world
+			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[4];
 			break;
 	}
 	return result;
