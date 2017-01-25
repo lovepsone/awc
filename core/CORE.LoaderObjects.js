@@ -11,8 +11,8 @@ CORE.LoaderObjects.LoadFinish = false;
 CORE.LoaderObjects.loader.manager.onProgress = function(item, loaded, total)
 {
 	var v = Math.round(loaded*100/total).toFixed(0);
-	HANDLER.Interface.pLoaderObject.val(v);
-	$('.progress-value').html(v + '%');
+	//HANDLER.Interface.pLoaderObject.val(v);
+	//$('.progress-value').html(v + '%');
 }
 
 CORE.LoaderObjects.loader.manager.onLoad = function()
