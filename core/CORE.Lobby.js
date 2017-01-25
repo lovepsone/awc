@@ -9,17 +9,20 @@ CORE.Lobby.RndSondLast		= 1;
 CORE.Lobby.Sounds		= [];
 CORE.Lobby.GroupStaticMesh 	= [];
 CORE.Lobby.raycaster		= new THREE.Raycaster();
-CORE.Lobby.mouse 		= new THREE.Vector2();
-CORE.Lobby.idsGlowMeshes	= [161, 707, 543, 704, 617];
-CORE.Lobby.localeGlow		= null;
+CORE.Lobby.Camera		= {};
+CORE.Lobby.MoveCamera		= {m1: false, m2: false, d:0, sPosition: new THREE.Vector3(3, 2.5, 4), lPosition: new THREE.Vector3(0.4, 0, -0.8)};	
+
+CORE.Lobby.Glow			= {_id:[161, 707, 543, 704, 617], locale: null, v3: new THREE.Vector3(), block: false};
+CORE.Lobby.mouse		= {v2: new THREE.Vector2(), ClickId: 0};
 
 CORE.Lobby.INT = function(_scene, _camera)
 {
 	CORE.Lobby.LoadMap(_scene);
 	CORE.Sky.Load(_scene);
 	CORE.Lobby.LoadPlayerMesh(_scene);
-	_camera.position.set(3, 2.5, 4);
-	_camera.lookAt(new THREE.Vector3(0.4, 0, -0.8));
+	CORE.Lobby.Camera = _camera;
+	CORE.Lobby.Camera.position.copy(CORE.Lobby.MoveCamera.sPosition);
+	CORE.Lobby.Camera.lookAt(CORE.Lobby.MoveCamera.lPosition);
 
 	CORE.Paricle.Fire(_scene, new THREE.Vector3(1.3, 0.3, 0.70), new THREE.Vector3(0, 0, 0), 2.6);
 	CORE.Light.FireLight(_scene, "fLobyy", new THREE.Vector3(1.3, 0.3, 0.70));
@@ -39,37 +42,39 @@ CORE.Lobby.INT = function(_scene, _camera)
 	document.addEventListener('mousemove', function(event)
 	{	
 		event.preventDefault();
-		CORE.Lobby.mouse.x = (event.clientX / CORE.Main.Width) * 2 - 1;
-		CORE.Lobby.mouse.y = - (event.clientY / CORE.Main.Height) * 2 + 1;
+		CORE.Lobby.mouse.v2.x = (event.clientX / CORE.Main.Width) * 2 - 1;
+		CORE.Lobby.mouse.v2.y = - (event.clientY / CORE.Main.Height) * 2 + 1;
 		
-		CORE.Lobby.raycaster.setFromCamera(CORE.Lobby.mouse, _camera);
+		CORE.Lobby.raycaster.setFromCamera(CORE.Lobby.mouse.v2, CORE.Lobby.Camera);
 		var intersects = CORE.Lobby.raycaster.intersectObjects(CORE.Lobby.GroupStaticMesh);
-		if (intersects.length > 0 && CORE.Lobby.endLoad)
+		if (intersects.length > 0 && CORE.Lobby.endLoad && CORE.Lobby.Glow.block == false)
 		{
 			var intersected = intersects[0].object;
 			var id = CORE.Lobby.CheckGlowStaticObject(intersected.name);
 
 			if (id > 0)
 			{
-				for (var i = 0; i < CORE.Lobby.idsGlowMeshes.length; i++)
+				for (var i = 0; i < CORE.Lobby.Glow._id.length; i++)
 				{
-					if (CORE.Lobby.idsGlowMeshes[i] != id)
+					if (CORE.Lobby.Glow._id[i] != id)
 					{
-						var mesh = _scene.getObjectByName("glow"+CORE.Lobby.idsGlowMeshes[i]);
+						var mesh = _scene.getObjectByName("glow"+CORE.Lobby.Glow._id[i]);
 						mesh.visible = false;
 					}
 				}
-				HANDLER.Interface.glow.text(CORE.Lobby.localeGlow);
+				HANDLER.Interface.glow.text(CORE.Lobby.Glow.locale);
 				HANDLER.Interface.glow.show();
 				document.body.style.cursor = 'pointer';
+				CORE.Lobby.mouse.ClickId = id;
 				var mesh = _scene.getObjectByName("glow"+id);
 				mesh.visible = true;
 			}
 			else
 			{
-				for (var i = 0; i < CORE.Lobby.idsGlowMeshes.length; i++)
+				CORE.Lobby.mouse.ClickId = 0;
+				for (var i = 0; i < CORE.Lobby.Glow._id.length; i++)
 				{
-					var mesh = _scene.getObjectByName("glow"+CORE.Lobby.idsGlowMeshes[i]);
+					var mesh = _scene.getObjectByName("glow"+CORE.Lobby.Glow._id[i]);
 					mesh.visible = false;
 				}
 				HANDLER.Interface.glow.hide();
@@ -77,8 +82,78 @@ CORE.Lobby.INT = function(_scene, _camera)
 			}
 			
 		}
+		else if (CORE.Lobby.Glow.block == true)
+		{
+			document.body.style.cursor = 'auto';
+			for (var i = 0; i < CORE.Lobby.Glow._id.length; i++)
+			{
+				var mesh = _scene.getObjectByName("glow"+CORE.Lobby.Glow._id[i]);
+				mesh.visible = false;
+			}
+		}
+		
+	}, false);
+	
+	document.addEventListener('click', function(event)
+	{
+		event.preventDefault();
+
+		if (CORE.Lobby.mouse.ClickId > 0 && CORE.Lobby.Glow.block == false)
+		{
+			HANDLER.Interface.glow.hide();
+			
+			var mesh = _scene.getObjectByName("glow"+CORE.Lobby.mouse.ClickId);
+			CORE.Lobby.Glow.v3.copy(mesh.position);
+			CORE.Lobby.MoveCamera.d = (CORE.Lobby.Glow.v3.x - CORE.Lobby.Camera.position.x)/(CORE.Lobby.Glow.v3.z - CORE.Lobby.Camera.position.z);
+			CORE.Lobby.MoveCamera.m1 = true;
+		
+			switch(CORE.Lobby.mouse.ClickId)
+			{
+				case 161: CORE.Lobby.Camera.lookAt(mesh.position);
+					break;
+				case 707: CORE.Lobby.Camera.lookAt(mesh.position);
+					break;
+				case 543: CORE.Lobby.Camera.lookAt(mesh.position);
+					break;
+				case 704: CORE.Lobby.Camera.lookAt(mesh.position);
+					break;
+				case 617: CORE.Lobby.Camera.lookAt(mesh.position);
+					break;
+			}
+			CORE.Lobby.Glow.block = true;
+		}
+		
+	}, false);
+}
+
+CORE.Lobby.CameraMove = function(delta)
+{
+	var d = Math.sqrt(Math.pow((CORE.Lobby.Camera.position.x - CORE.Lobby.Glow.v3.x), 2) + Math.pow((CORE.Lobby.Camera.position.z - CORE.Lobby.Glow.v3.z), 2));
+
+	if (d > 1.5 && CORE.Lobby.MoveCamera.m1 == true)
+	{
+		CORE.Lobby.Camera.translateZ(-CORE.Lobby.MoveCamera.d*delta);
 	}
-	, false );
+	else if (d <= 1.5 && CORE.Lobby.MoveCamera.m1 == true)
+	{
+		HANDLER.Interface.flobby.show();
+		CORE.Lobby.MoveCamera.m1 = false;
+	}
+	else if (CORE.Lobby.MoveCamera.m2 == true)
+	{
+		if (CORE.Lobby.Camera.position.x < CORE.Lobby.MoveCamera.sPosition.x)
+		{
+			CORE.Lobby.Camera.translateZ(2*delta);
+		}
+		else
+		{
+			CORE.Lobby.MoveCamera.m2 = false;
+			CORE.Lobby.Glow.block = false;
+			CORE.Lobby.Camera.lookAt(CORE.Lobby.MoveCamera.lPosition);
+		}
+		
+	}
+
 }
 
 CORE.Lobby.CheckGlowStaticObject = function(id)
@@ -87,19 +162,19 @@ CORE.Lobby.CheckGlowStaticObject = function(id)
 	switch(id)
 	{
 		case 161: result = 161; // storage
-			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[0];
+			  CORE.Lobby.Glow.locale = LOCALE.RU.Lobby[0];
 			break;
 		case 707: result = 707; // Inventory
-			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[1];
+			  CORE.Lobby.Glow.locale = LOCALE.RU.Lobby[1];
 			break;
 		case 543: result = 543; // Auction
-			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[2];
+			  CORE.Lobby.Glow.locale = LOCALE.RU.Lobby[2];
 			break;
 		case 704: result = 704; // Personal computer
-			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[3];
+			  CORE.Lobby.Glow.locale = LOCALE.RU.Lobby[3];
 			break;
 		case 617: result = 617; // In the gaming world
-			  CORE.Lobby.localeGlow = LOCALE.RU.Lobby[4];
+			  CORE.Lobby.Glow.locale = LOCALE.RU.Lobby[4];
 			break;
 	}
 	return result;
@@ -255,6 +330,7 @@ CORE.Lobby.Update = function(delta)
 	{
 		CORE.Lobby.pMixer.update(0.75*delta);
 		CORE.Paricle.Update(delta);
+		CORE.Lobby.CameraMove(6*delta);
 		//CORE.Lobby.RndSounds(1, 35, 5);
 	}
 }
