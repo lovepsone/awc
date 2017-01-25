@@ -33,6 +33,34 @@ body
 	top: 200px;
 }
 
+#flobby
+{
+	position: absolute;
+	width: 90%;
+	height: 90%;
+	background: url(style/lobby_fon.png) no-repeat;
+	background-size: 100% 100%;
+	top: 5%;
+	left: 5%;
+	display: none;
+}
+
+#blobby
+{
+	position: relative;
+	top: -13px;
+	left: -13px;
+}
+
+#btnClose
+{
+	display: inline-block;
+	background: url(style/close.png) no-repeat;
+	background-size: 100% 100%;
+	width: 26px;
+	height: 26px;
+}
+
 #auth
 {
 	position: absolute;
@@ -40,6 +68,7 @@ body
 	height: 100%;
 	background-color: rgba(0,0,0,0.0);
 	background: url(style/loginform.png) no-repeat;
+	background-size: 100% 100%;
 	display: box;
 	text-align: center;
 }
@@ -51,8 +80,8 @@ body
 	font-weight: 300;
 	font-size: 24px;
 	position: absolute;
-	top: 550px;
-	left: 500px;
+	top: 50%;
+	left: 45%;
 }
 .loginform input[type="text"]
 {
