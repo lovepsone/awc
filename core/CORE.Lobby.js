@@ -11,7 +11,6 @@ CORE.Lobby.GroupStaticMesh 	= [];
 CORE.Lobby.raycaster		= new THREE.Raycaster();
 CORE.Lobby.Camera		= {};
 CORE.Lobby.MoveCamera		= {m1: false, m2: false, d:0, sPosition: new THREE.Vector3(3, 2.5, 4), lPosition: new THREE.Vector3(0.4, 0, -0.8)};	
-
 CORE.Lobby.Glow			= {_id:[161, 707, 543, 704, 617], locale: null, v3: new THREE.Vector3(), block: false};
 CORE.Lobby.mouse		= {v2: new THREE.Vector2(), ClickId: 0};
 
@@ -118,6 +117,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 				case 704: CORE.Lobby.Camera.lookAt(mesh.position);
 					break;
 				case 617: CORE.Lobby.Camera.lookAt(mesh.position);
+					CORE.Paricle.lScreenAttenuation(_scene, 2, CORE.Lobby.Camera.position, 0.02);
 					break;
 			}
 			CORE.Lobby.Glow.block = true;
@@ -130,7 +130,7 @@ CORE.Lobby.CameraMove = function(delta)
 {
 	var d = Math.sqrt(Math.pow((CORE.Lobby.Camera.position.x - CORE.Lobby.Glow.v3.x), 2) + Math.pow((CORE.Lobby.Camera.position.z - CORE.Lobby.Glow.v3.z), 2));
 
-	if (d > 1.5 && CORE.Lobby.MoveCamera.m1 == true)
+	if (d > 1.5 && CORE.Lobby.MoveCamera.m1 == true && CORE.Paricle.ScreenAttenuation.isEndBlack == false)
 	{
 		CORE.Lobby.Camera.translateZ(-CORE.Lobby.MoveCamera.d*delta);
 	}

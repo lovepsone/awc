@@ -5,6 +5,7 @@ CORE.Paricle.TextureLoader	= new THREE.TextureLoader();
 CORE.Paricle.Group 		= [];
 CORE.Paricle.count		= 0;
 CORE.Paricle.Emiter		= {};
+CORE.Paricle.ScreenAttenuation	= {mesh:{}, isLoad: false, isEndBlack: false, speed: 0};
 
 CORE.Paricle.Fire = function(_scene, position, rotation, size)
 {
@@ -101,10 +102,34 @@ CORE.Paricle.Fire = function(_scene, position, rotation, size)
 	CORE.Paricle.count++;
 }
 
+CORE.Paricle.lScreenAttenuation = function(_scene, size, position, speed)
+{
+	var g = new THREE.BoxBufferGeometry(size, size, size);
+	var m = new THREE.MeshBasicMaterial({color: 0x000000, side: THREE.BackSide, needsUpdate: true, transparent: true, opacity:0})
+	CORE.Paricle.ScreenAttenuation.mesh = new THREE.Mesh(g, m);
+	CORE.Paricle.ScreenAttenuation.mesh.position.copy(position);
+	CORE.Paricle.ScreenAttenuation.mesh.name = "Screen Attenuation";
+	_scene.add(CORE.Paricle.ScreenAttenuation.mesh);
+	CORE.Paricle.ScreenAttenuation.isLoad = true;
+	CORE.Paricle.ScreenAttenuation.speed = speed;
+}
+
 CORE.Paricle.Update = function(dt)
 {
 	for (var i = 0; i < CORE.Paricle.Group.length; i++)
 	{
 		CORE.Paricle.Group[i].tick(dt);
+	}
+	
+	if (CORE.Paricle.ScreenAttenuation.isLoad == true && CORE.Paricle.ScreenAttenuation.mesh)
+	{
+		if (CORE.Paricle.ScreenAttenuation.mesh.material.opacity >= 1)
+		{
+			CORE.Paricle.ScreenAttenuation.isEndBlack = true;
+		}
+		else if (CORE.Paricle.ScreenAttenuation.isEndBlack == false)
+		{
+			CORE.Paricle.ScreenAttenuation.mesh.material.opacity += CORE.Paricle.ScreenAttenuation.speed;
+		}
 	}
 }
