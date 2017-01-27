@@ -114,6 +114,15 @@ CORE.Paricle.lScreenAttenuation = function(_scene, size, position, speed)
 	CORE.Paricle.ScreenAttenuation.speed = speed;
 }
 
+CORE.Paricle.Remove = function(_scene)
+{
+	for (var i = 0; i < CORE.Paricle.count; i++)
+	{
+		_scene.remove(CORE.Paricle.Group[i].mesh);
+	}
+	CORE.Paricle.count = 0;
+}
+
 CORE.Paricle.Update = function(dt)
 {
 	for (var i = 0; i < CORE.Paricle.Group.length; i++)
