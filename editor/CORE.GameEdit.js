@@ -220,17 +220,17 @@ CORE.GameEdit.initScene = function()
 	var directions = ['px', 'nx', 'py', 'ny', 'pz', 'nz'];
 	var materialArray = [];
 	for (var i = 0; i < 6; i++)
-		materialArray.push( new THREE.MeshBasicMaterial({
-		map: THREE.ImageUtils.loadTexture('textures/skybox/19/sky_cube_0'+(i+1)+'.png'),
-		side: THREE.BackSide,
-		fog: false
-	}));
+	{
+		var texture = new THREE.TextureLoader().load('textures/skybox/19/sky_cube_0'+(i+1)+'.png');
+		materialArray.push(new THREE.MeshBasicMaterial({map: texture, side: THREE.BackSide, fog: false}));
+	}
 	
 	var skyMaterial = new THREE.MultiMaterial( materialArray );
 	var skyBox = new THREE.Mesh(skyGeometry, skyMaterial);
 	skyBox.position.y = 900;
 	skyBox.frustumCulled = false;
 	skyBox.name = "skybox";
+	console.log(skyBox);
 	CORE.GameEdit.scene.add(skyBox);
 	
 	CORE.GameEdit.LoadMap();

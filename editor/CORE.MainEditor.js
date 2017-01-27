@@ -185,10 +185,10 @@ CORE.MainEditor.initScene = function()
 	var directions = ['px', 'nx', 'py', 'ny', 'pz', 'nz'];
 	var materialArray = [];
 	for (var i = 0; i < 6; i++)
-		materialArray.push( new THREE.MeshBasicMaterial({
-		map: THREE.ImageUtils.loadTexture('textures/skybox/19/sky_cube_0'+(i+1)+'.png'),
-		side: THREE.BackSide
-	}));
+	{
+		var texture = new THREE.TextureLoader().load('textures/skybox/19/sky_cube_0'+(i+1)+'.png');
+		materialArray.push(new THREE.MeshBasicMaterial({map: texture, side: THREE.BackSide}));
+	}
 
 	var skyMaterial = new THREE.MultiMaterial(materialArray);
 	var skyBox = new THREE.Mesh(skyGeometry, skyMaterial);
