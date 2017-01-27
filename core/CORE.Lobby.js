@@ -23,7 +23,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 	CORE.Lobby.Camera.position.copy(CORE.Lobby.MoveCamera.sPosition);
 	CORE.Lobby.Camera.lookAt(CORE.Lobby.MoveCamera.lPosition);
 
-	CORE.Paricle.Fire(_scene, new THREE.Vector3(1.3, 0.3, 0.70), new THREE.Vector3(0, 0, 0), 2.6);
+	CORE.Particle.Fire(_scene, new THREE.Vector3(1.3, 0.3, 0.70), new THREE.Vector3(0, 0, 0), 2.6);
 	CORE.Light.FireLight(_scene, "fLobyy", new THREE.Vector3(1.3, 0.3, 0.70));
 	
 	for (var i = 0; i < 6; i++)
@@ -117,7 +117,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 				case 704: CORE.Lobby.Camera.lookAt(mesh.position);
 					break;
 				case 617: CORE.Lobby.Camera.lookAt(mesh.position);
-					CORE.Paricle.lScreenAttenuation(_scene, 2, CORE.Lobby.Camera.position, 0.02);
+					CORE.Particle.lScreenAttenuation(_scene, 2, CORE.Lobby.Camera.position, 0.02);
 					break;
 			}
 			CORE.Lobby.Glow.block = true;
@@ -130,7 +130,7 @@ CORE.Lobby.CameraMove = function(delta)
 {
 	var d = Math.sqrt(Math.pow((CORE.Lobby.Camera.position.x - CORE.Lobby.Glow.v3.x), 2) + Math.pow((CORE.Lobby.Camera.position.z - CORE.Lobby.Glow.v3.z), 2));
 
-	if (d > 1.5 && CORE.Lobby.MoveCamera.m1 == true && CORE.Paricle.ScreenAttenuation.isEndBlack == false)
+	if (d > 1.5 && CORE.Lobby.MoveCamera.m1 == true && CORE.Particle.ScreenAttenuation.isEndBlack == false)
 	{
 		CORE.Lobby.Camera.translateZ(-CORE.Lobby.MoveCamera.d*delta);
 	}
@@ -152,6 +152,11 @@ CORE.Lobby.CameraMove = function(delta)
 			CORE.Lobby.Camera.lookAt(CORE.Lobby.MoveCamera.lPosition);
 		}
 		
+	}
+	else if (CORE.Particle.ScreenAttenuation.isEndBlack == true)
+	{
+		CORE.Main.StartLoadMap = true;
+		CORE.Lobby.endLoad = false;
 	}
 
 }
@@ -329,7 +334,7 @@ CORE.Lobby.Update = function(delta)
 	if (CORE.Lobby.endLoad)
 	{
 		CORE.Lobby.pMixer.update(0.75*delta);
-		CORE.Paricle.Update(delta);
+		CORE.Particle.Update(delta);
 		CORE.Lobby.CameraMove(6*delta);
 		//CORE.Lobby.RndSounds(1, 35, 5);
 	}

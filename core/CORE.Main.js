@@ -4,6 +4,7 @@ CORE.Main = CORE.Main || {};
 
 CORE.Main.Width			= window.innerWidth;
 CORE.Main.Height		= window.innerHeight;
+CORE.Main.StartLoadMap		= false;
 CORE.Main.renderer 		= new THREE.WebGLRenderer({antialias:true});
 CORE.Main.ControlPlayer 	= false;
 CORE.Main.camera 		= new THREE.PerspectiveCamera(60, CORE.Main.Width/CORE.Main.Height, 0.001, 9000);
@@ -38,7 +39,7 @@ CORE.Main.INIT = function()
 	//CORE.Main.initPlayers();
 	//CORE.Zone.Load('zone.js', CORE.Main.scene);
 	//CORE.Zone.LoadLobby(CORE.Main.scene);
-	//CORE.Paricle.Fire(CORE.Main.scene);
+	//CORE.Particle.Fire(CORE.Main.scene);
 	//window.addEventListener('resize', CORE.Main.onWindowResize, false);
 }
 
@@ -272,7 +273,7 @@ CORE.Main.Render = function()
 		CORE.Main.UpdateCamera();
 		CORE.Main.UpdateData(time, _delta);
 	}
-	CORE.Paricle.Update(_delta*0.4);
+	CORE.Particle.Update(_delta*0.4);
 	light.position.x = 10 * Math.cos(time* 0.0003);
 	light.position.y = 10 * Math.sin(time* 0.0003);*/
 	

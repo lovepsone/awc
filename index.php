@@ -33,7 +33,7 @@
 	echo '<script type="text/javascript" src="CORE/CORE.Main.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Lobby.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Sounds.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Paricle.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Particle.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Zone.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Weapon.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Player.js"></script>';
@@ -48,9 +48,14 @@
 	echo 'Password:<input type="password" id="AuthPassword"/></br>';
 	echo '<input id="btnAuth" type="submit" value="Auth"/></div></div>';
 	
+	// text in glow mesh
 	echo '<div id="glow" aligin="center">';
 	echo '</div>';
 	
+	echo '<div id="flobby" aligin="center">';
+	echo '<div id="blobby"><a href="#" id="btnClose"></a></div>';
+	echo '</div>';
+
 	// loader main
 	/*echo '<div id="LoaderObject">';
 	echo '<progress id="pLoaderObject" value="0" max="100"></progress>';
@@ -73,11 +78,11 @@
 	varying float intensity;
 	void main() 
 	{
-	    vec3 vNormal = normalize( normalMatrix * normal );
+		vec3 vNormal = normalize( normalMatrix * normal );
 		vec3 vNormel = normalize( normalMatrix * viewVector );
 		intensity = pow( c - dot(vNormal, vNormel), p );
 		
-	    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+		gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
 	}
 	</script>';
 
@@ -88,14 +93,14 @@
 	void main() 
 	{
 		vec3 glow = glowColor * intensity;
-	    gl_FragColor = vec4( glow, 1.0 );
+		gl_FragColor = vec4( glow, 1.0 );
 	}
 	</script>';
 
 	echo '<script>';
 	?>
 	if (!Detector.webgl) Detector.addGetWebGLMessage();
-	$("#CORE").append(CORE.Main.stats.dom);
+	//$("#CORE").append(CORE.Main.stats.dom);
 	$("#CORE").append(CORE.Main.renderer.domElement);
 	CORE.Main.INIT();
 	CORE.Main.AnimationFrame();
