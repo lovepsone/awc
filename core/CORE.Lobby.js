@@ -166,8 +166,11 @@ CORE.Lobby.CameraMove = function(delta)
 	}
 	else if (CORE.Particle.ScreenAttenuation.isEndBlack == true)
 	{
+		CORE.Lobby.RemoveListener();
 		CORE.Main.StartLoadMap = true;
 		CORE.Lobby.endLoad = false;
+		CORE.Particle.Remove(CORE.Main.scene);
+		CORE.Lobby.RemoveScene(CORE.Main.scene);
 	}
 
 }
@@ -341,17 +344,26 @@ CORE.Lobby.RndSounds = function(min, max, maxsounds)
 
 CORE.Lobby.RemoveScene = function(_scene)
 {
-	for (var i = 0; i < CORE.Lobby.GroupStaticMesh.count; i++)
+	for (var i = 0; i < CORE.Lobby.GroupStaticMesh.length; i++)
 	{
-		_scene.remove(CORE.Lobby.GroupStaticMesh[i].mesh);
+		_scene.remove(CORE.Lobby.GroupStaticMesh[i]);
 	}
 	
 	CORE.Lobby.GroupStaticMesh = new Array();
+	
+	for (var i = 0; i < CORE.Lobby.Glow._id.length; i++)
+	{
+		_scene.remove(_scene.getObjectByName("glow"+CORE.Lobby.Glow._id[i]));
+	}
+	_scene.remove(_scene.getObjectByName("PlayerLobby"));
+	_scene.remove(_scene.getObjectByName("MapLobby"));
+	
+	
 }
 
 CORE.Lobby.Update = function(delta)
 {
-	if (CORE.Lobby.endLoad)
+	if (CORE.Lobby.endLoad == true)
 	{
 		CORE.Lobby.pMixer.update(0.75*delta);
 		CORE.Particle.Update(delta);
