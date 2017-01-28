@@ -12,7 +12,7 @@ CORE.Lobby.raycaster		= new THREE.Raycaster();
 CORE.Lobby.Camera		= {};
 CORE.Lobby.MoveCamera		= {m1: false, m2: false, d:0, sPosition: new THREE.Vector3(3, 2.5, 4), lPosition: new THREE.Vector3(0.4, 0, -0.8)};	
 CORE.Lobby.Glow			= {_id:[161, 707, 543, 704, 617], locale: null, v3: new THREE.Vector3(), block: false};
-CORE.Lobby.mouse		= {v2: new THREE.Vector2(), ClickId: 0};
+CORE.Lobby.mouse		= {v2: new THREE.Vector2(), ClickId: 0, listenerMove: null, listenerClick: null};
 
 CORE.Lobby.INT = function(_scene, _camera)
 {
@@ -38,7 +38,7 @@ CORE.Lobby.INT = function(_scene, _camera)
 		}
 	}
 
-	document.addEventListener('mousemove', function(event)
+	CORE.Lobby.mouse.listenerMove = function(event)
 	{	
 		event.preventDefault();
 		CORE.Lobby.mouse.v2.x = (event.clientX / CORE.Main.Width) * 2 - 1;
@@ -91,9 +91,9 @@ CORE.Lobby.INT = function(_scene, _camera)
 			}
 		}
 		
-	}, false);
-	
-	document.addEventListener('click', function(event)
+	}
+
+	CORE.Lobby.mouse.listenerClick =  function(event)
 	{
 		event.preventDefault();
 
@@ -123,7 +123,16 @@ CORE.Lobby.INT = function(_scene, _camera)
 			CORE.Lobby.Glow.block = true;
 		}
 		
-	}, false);
+	}
+	
+	document.addEventListener('mousemove', CORE.Lobby.mouse.listenerMove, false);
+	document.addEventListener('click', CORE.Lobby.mouse.listenerClick, false);
+}
+
+CORE.Lobby.RemoveListener = function()
+{
+	document.removeEventListener('mousemove', CORE.Lobby.mouse.listenerMove, false)
+	document.removeEventListener('click', CORE.Lobby.mouse.listenerClick, false);
 }
 
 CORE.Lobby.CameraMove = function(delta)
