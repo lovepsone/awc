@@ -306,7 +306,6 @@ CORE.Lobby.LoadPlayerMesh = function(_scene)
 		CORE.Lobby.pMixer = new THREE.AnimationMixer(mesh);
 		CORE.Lobby.action = CORE.Lobby.pMixer.clipAction(geometry.animations[0], mesh);
 		CORE.Lobby.action.play(CORE.Lobby.pMixer);
-
 		_scene.add(mesh);
 	});
 }
@@ -327,6 +326,16 @@ CORE.Lobby.RndSounds = function(min, max, maxsounds)
 		}
 	}
 	
+}
+
+CORE.Lobby.RemoveScene = function(_scene)
+{
+	for (var i = 0; i < CORE.Lobby.GroupStaticMesh.count; i++)
+	{
+		_scene.remove(CORE.Lobby.GroupStaticMesh[i].mesh);
+	}
+	
+	CORE.Lobby.GroupStaticMesh = new Array();
 }
 
 CORE.Lobby.Update = function(delta)
