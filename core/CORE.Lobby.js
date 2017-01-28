@@ -133,6 +133,8 @@ CORE.Lobby.RemoveListener = function()
 {
 	document.removeEventListener('mousemove', CORE.Lobby.mouse.listenerMove, false)
 	document.removeEventListener('click', CORE.Lobby.mouse.listenerClick, false);
+	CORE.Lobby.mouse.listenerMove = null;
+	CORE.Lobby.mouse.listenerClick = null;
 }
 
 CORE.Lobby.CameraMove = function(delta)
