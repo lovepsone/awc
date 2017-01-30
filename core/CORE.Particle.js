@@ -122,6 +122,7 @@ CORE.Particle.Remove = function(_scene)
 	{
 		_scene.remove(CORE.Particle.Group[i].mesh);
 	}
+	_scene.remove(CORE.Particle.ScreenAttenuation.mesh);
 	CORE.Particle.count = 0;
 }
 
@@ -137,6 +138,7 @@ CORE.Particle.Update = function(dt)
 		if (CORE.Particle.ScreenAttenuation.mesh.material.opacity >= 1)
 		{
 			CORE.Particle.ScreenAttenuation.isEndBlack = true;
+			
 		}
 		else if (CORE.Particle.ScreenAttenuation.isEndBlack == false)
 		{
