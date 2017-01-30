@@ -9,7 +9,7 @@ CORE.Particle.ScreenAttenuation	= {mesh:{}, isLoad: false, isEndBlack: false, sp
 
 CORE.Particle.Fire = function(_scene, position, rotation, size)
 {
-	CORE.Particle.Group[CORE.count] = new SPE.Group(
+	var group = new SPE.Group(
 	{
 		texture:
 		{
@@ -97,7 +97,9 @@ CORE.Particle.Fire = function(_scene, position, rotation, size)
 		}
 	});
 
-	CORE.Particle.Group[CORE.Particle.count].addEmitter(CORE.Particle.Emiter);
+	group.addEmitter(CORE.Particle.Emiter);
+	CORE.Particle.Group[CORE.Particle.count] = {};
+	CORE.Particle.Group[CORE.Particle.count] = group;
 	_scene.add(CORE.Particle.Group[CORE.Particle.count].mesh);
 	CORE.Particle.count++;
 }
