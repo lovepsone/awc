@@ -237,9 +237,9 @@ CORE.Lobby.LoadMap = function(_scene)
 		texture.repeat.set(1, 1);
 		geometry.computeVertexNormals();
 
-		CORE.Maps.mesh[0] = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ map: texture, side: THREE.DoubleSide}));
-		CORE.Maps.mesh[0].name = 'MapLobby';
-		_scene.add(CORE.Maps.mesh[0]);
+		var mMesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ map: texture, side: THREE.DoubleSide}));
+		mMesh.name = 'MapLobby';
+		_scene.add(mMesh);
 	});
 	
 	for (var i = 0; i < MAPS.Lobby.mesh.length; i++)
