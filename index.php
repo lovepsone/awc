@@ -9,39 +9,32 @@
 	echo '<script type="text/javascript" src="libs/three.min.js"></script>';
 	echo '<script type="text/javascript" src="libs/socket.io.js"></script>';
 	echo '<script type="text/javascript" src="libs/SPE.min.js"></script>';
-	
 	echo '<script type="text/javascript" src="libs/Detector.js"></script>';
 	echo '<script type="text/javascript" src="libs/stats.min.js"></script>';
-
+	echo '<script type="text/javascript" src="CORE/HANDLER.Interface.js"></script>';
 	echo '<link rel="stylesheet" href="CORE.Style.css">';
 	echo '</head><body>';
 
-	echo '<script type="text/javascript" src="CORE/HANDLER.Interface.js"></script>';
 	echo '<script type="text/javascript" src="locale/ru.utf.js"></script>';
-
+	// configs
 	echo '<script type="text/javascript" src="CORE/CORE.Conf.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.WPNConf.js"></script>';
+	// additional libs
 	echo '<script type="text/javascript" src="CORE/CORE.Network.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.FullScreen.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.WindowResize.js"></script>';
-	// LOAD MAPS and obj
+	// maps and statics mesh
 	echo '<script type="text/javascript" src="CORE/Maps/MAPS.Lobby.js"></script>';
+	echo '<script type="text/javascript" src="CORE/Maps/MAPS.Map1.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Object3D.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.LoaderObjects.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Maps.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.LoaderMap.js"></script>';
 	//
 	echo '<script type="text/javascript" src="CORE/CORE.Main.js"></script>';
+	echo '<script type="text/javascript" src="CORE/CORE.Particle.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Lobby.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Sounds.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Particle.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Zone.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Weapon.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Player.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Hand.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.WPNHud.js"></script>';
-	echo '<script type="text/javascript" src="CORE/CORE.Bullet.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Sky.js"></script>';
 	echo '<script type="text/javascript" src="CORE/CORE.Light.js"></script>';
+	
 	// auths
 	echo '<div id="auth" align="center">';
 	echo '<div class="loginform">Login:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="AuthLogin"/></br>';
@@ -57,10 +50,10 @@
 	echo '</div>';
 
 	// loader main
-	/*echo '<div id="LoaderObject">';
-	echo '<progress id="pLoaderObject" value="0" max="100"></progress>';
-	echo '<span class="progress-value">0%</span>';
-	echo '</div>';*/
+	echo '<div id="LoaderMaps">';
+	echo '<progress id="pLoaderMaps" value="0" max="100"></progress>';
+	echo '<span class="pvLoaderMaps">0%</span>';
+	echo '</div>';
 
 	echo '<div id="blocker">';
 	echo '<div id="instructions"><span style="font-size:40px">Click to play</span><br />(W, A, S, D = Move, SPACE = Jump, MOUSE = Look around)</div>';

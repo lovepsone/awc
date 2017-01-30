@@ -11,15 +11,14 @@ $(document).ready(function()
 	HANDLER.Interface.glow = $("#glow");
 	HANDLER.Interface.flobby = $("#flobby");
 
-	HANDLER.Interface.LoaderObject = $("#LoaderObject");
+	HANDLER.Interface.LoaderMaps = $("#LoaderMaps");
 	// BTN
 	HANDLER.Interface.btnAuth = $("#btnAuth");
 	HANDLER.Interface.btnClose = $("#btnClose"); //btn lobby
-	HANDLER.Interface.pLoaderObject = $("#pLoaderObject");
 
 	HANDLER.Interface.blocker.hide();
 	HANDLER.Interface.CORE.hide();
-	HANDLER.Interface.LoaderObject.hide();
+	HANDLER.Interface.LoaderMaps.hide();
 	HANDLER.Interface.glow.hide();
 	HANDLER.Interface.flobby.hide();
 

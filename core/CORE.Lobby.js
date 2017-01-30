@@ -358,7 +358,10 @@ CORE.Lobby.RemoveScene = function(_scene)
 	_scene.remove(_scene.getObjectByName("PlayerLobby"));
 	_scene.remove(_scene.getObjectByName("MapLobby"));
 	
-	
+	//start loader map
+	HANDLER.Interface.CORE.hide();
+	HANDLER.Interface.LoaderMaps.show();
+	CORE.LoaderMap.LoadMap(_scene);
 }
 
 CORE.Lobby.Update = function(delta)
