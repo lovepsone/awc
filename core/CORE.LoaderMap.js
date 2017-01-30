@@ -1,15 +1,15 @@
 var CORE = CORE || {};
 CORE.LoaderMap = CORE.LoaderMap || {};
 
-//CORE.LoaderMap.manager	=  THREE.LoadingManager();
-CORE.LoaderMap.loader		= new THREE.JSONLoader(/*CORE.LoaderMap.manager*/);
+CORE.LoaderMap.manager		= new THREE.LoadingManager();
+CORE.LoaderMap.loader		= new THREE.JSONLoader(CORE.LoaderMap.manager);
 CORE.LoaderMap.Static		= {};
 CORE.LoaderMap.MapMesh		= [];
 
 CORE.LoaderMap.LoadObj = false;
 CORE.LoaderMap.LoadFinish = false;
 
-CORE.LoaderMap.loader.manager.onProgress = function(item, loaded, total)
+CORE.LoaderMap.manager.onProgress = function(item, loaded, total)
 {
 	var v = Math.round(loaded*100/total).toFixed(0);
 	//HANDLER.Interface.pLoaderMaps.val('10');
@@ -17,7 +17,7 @@ CORE.LoaderMap.loader.manager.onProgress = function(item, loaded, total)
 	$('.pvLoaderMaps').html(v + '%');
 }
 
-CORE.LoaderMap.loader.manager.onLoad = function()
+CORE.LoaderMap.manager.onLoad = function()
 {
 	CORE.LoaderMap.LoadFinish = true;
 	HANDLER.Interface.LoaderMaps.hide();
